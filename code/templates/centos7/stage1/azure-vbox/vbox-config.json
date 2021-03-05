@@ -1,0 +1,109 @@
+{
+  "variables": {
+    "version": "1.5"
+  },
+
+  "provisioners":
+  [
+    {
+      "type": "shell",
+      "execute_command": "echo 'sysadmin' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "../../shared/scripts/ansible.sh"
+    },
+    {
+      "type": "shell",
+      "execute_command": "echo 'sysadmin' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "../../shared/scripts/cleanup.sh"
+    },
+    {
+      "type": "shell",
+      "execute_command": "echo 'sysadmin' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "../../shared/scripts/cis.sh"
+    }
+  ],
+
+  "builders":
+  [
+    {
+      "type": "virtualbox-iso",
+
+      "keep_registered": true,
+      "skip_export": false,
+
+      "boot_command":
+      [
+        "<tab> text ks=hd:/dev/fd0:ks.cfg<enter><wait>"
+      ],
+
+      "boot_wait": "10s",
+      "disk_size": 81920,
+      
+      "floppy_files":
+      [
+        "../../shared/kickstart/ks.cfg"
+      ],
+      
+      "guest_os_type": "RedHat_64",
+      "headless": true,
+      "http_directory": "http",
+      
+      "iso_urls":
+      [
+        "CentOS-7-x86_64-Minimal-1908.iso",
+        "http://mirrors.mit.edu/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1908.iso"
+      ],
+      
+      "iso_checksum_type": "sha256",
+      "iso_checksum": "9a2c47d97b9975452f7d582264e9fc16d108ed8252ac6816239a3b58cef5c53d",
+      "ssh_username": "sysadmin",
+      "ssh_password": "sysadmin",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "10000s",
+      "shutdown_command": "echo 'sysadmin'|sudo -S /sbin/halt -h -p",
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "virtualbox_version_file": ".vbox_version",
+      "vm_name": "centos7-x86_64-stage1",
+      
+      "vboxmanage":
+      [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "512"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "2"
+        ]
+      ]
+    }
+  ],
+
+  "post-processors":
+  [
+    {
+      "type": "vagrant",
+      "keep_input_artifact": true, 
+      "compression_level": "6",
+      "output": "vagrant/centos7-x86_64-stage1.box"
+    },
+    {
+      "type": "manifest",
+      "output": "centos7-x86_64-stage1.manifest",
+      "strip_path": true
+    },
+    {
+      "type": "checksum",
+      "checksum_types": "md5,sha256",
+      "output": "centos7-x86_64-stage1_{{.ChecksumType}}.checksum"
+    },
+    {
+      "type": "vhd",
+      "output": "centos7-x86_64-stage1.vhd",
+      "keep_input_artifact": true
+    }
+  ]
+}

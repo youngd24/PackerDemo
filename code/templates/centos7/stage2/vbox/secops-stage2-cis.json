@@ -1,0 +1,40 @@
+{
+  "variables": {
+    "vm_name": "centos7-x86_64-stage2-full-cis",
+    "vm_description": "CentOS 7, x86-64, Stage 1 Base, Full CIS Level 1.1",
+    "vm_version": "0.1"
+  },
+
+  "provisioners":
+  [
+    {
+      "type": "shell",
+      "execute_command": "echo 'sysadmin' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "../../shared/scripts/stage2.sh"
+    }
+  ],
+
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "source_path": "../../stage1/vbox/output-virtualbox-iso/centos7-x86_64-stage1.ovf",
+      "checksum_type": "file",
+      "checksum": "../../stage1/vbox/centos7-x86_64-stage1_sha256.checksum",
+      "vm_name": "centos7-x86_64-stage2-full-cis",
+      "keep_registered": "true",
+      "communicator": "ssh",
+      "ssh_username": "sysadmin",
+      "ssh_password": "sysadmin",
+      "format": "ovf",
+      "output_directory": "output-virtualbox-ovf",
+      "headless": "false",
+      "vrdp_bind_address": "127.0.0.1",
+      "shutdown_command": "echo 'sysadmin' | sudo -S shutdown -P now",
+      "boot_command":
+      [
+        "<tab><wait>",
+        "<enter"
+      ]
+    }
+  ]
+}

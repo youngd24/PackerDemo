@@ -1,0 +1,79 @@
+{
+  "variables": {
+    "version":        "1.5",
+    "vcenter_server": "vcenter.dc6.imanage.work",
+    "vcenter_user":   "",
+    "vcenter_pass":   "",
+    "ssh_username":   "sysadmin",
+    "ssh_password":   "sysadmin"
+  },
+
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo 'sysadmin' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "../../shared/scripts/ansible.sh"
+    },
+    {
+      "type": "ansible-local",
+      "playbook_file": "../../shared/scripts/main.yml"
+    },
+    {
+      "type": "shell",
+      "execute_command": "echo 'sysadmin' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "../../shared/scripts/cleanup.sh"
+    },
+    {
+      "type": "shell",
+      "execute_command": "echo 'sysadmin' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "../../shared/scripts/ifcfg.sh"
+    }
+  ],
+
+  "builders": [
+    {
+      "type": "vsphere-iso",
+
+      "vcenter_server":        "{{user `vcenter_server`}}",
+      "username":              "svc_secauto@ch3.imanage.work",
+      "password":              "geb6a2BeF3RBy4wyrB",
+      "insecure_connection":   "true",
+      "vm_name":               "centos7-x86_64-stage1",
+      "notes":                 "SecOps CentOS 7 Packer build",
+      "datacenter":            "DC6",
+      "cluster":               "WORK-SHARE",
+      "datastore":             "dc6-k2-ppd-splunk01",
+      "folder":                "Services/Security/Base_Images",
+      "network":               "VM-Mgmt",
+      "guest_os_type":         "centos7_64Guest",
+
+      "ssh_username":          "{{user `ssh_username`}}",
+      "ssh_password":          "{{user `ssh_password`}}",
+
+      "CPUs":                  2,
+      "RAM":                   4096,
+      "RAM_reserve_all":       false,
+
+      "convert_to_template":   false,
+
+      "disk_controller_type":  "pvscsi",
+      "disk_size":             80000,
+      "disk_thin_provisioned": true,
+
+      "network_card":          "vmxnet3",
+
+      "iso_paths": [
+        "[dc6-nmb-iso-templates] secops/ISO/CentOS-7-x86_64-Minimal-1908.iso"
+      ],
+
+      "iso_checksum":          "9a2c47d97b9975452f7d582264e9fc16d108ed8252ac6816239a3b58cef5c53d",
+      "iso_checksum_type":     "sha256",
+
+      "floppy_files": [
+        "{{template_dir}}/../../shared/kickstart/ks.cfg"
+      ],
+
+      "boot_command":          "<tab> text ks=hd:fd0:/ks.cfg<enter><wait>"
+    }
+  ]
+}

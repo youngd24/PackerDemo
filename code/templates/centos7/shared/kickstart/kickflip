@@ -1,0 +1,85 @@
+#!/bin/bash
+###############################################################################
+#
+# kickflip
+#
+# Script to "flip" between build target Kickstart configs
+#
+###############################################################################
+#
+# USAGE:
+#
+#  kickflip <target>
+#
+###############################################################################
+#
+# TODO:
+#
+#  * Add a print_usage function that shows what the options are
+#  * Needs better error detection and handling
+#
+###############################################################################
+
+# The needed boot settings for the Kickstart config files
+
+# Boot for vSphere
+#
+# This is currently hardcoded for the DC6 data center/cluster as that's 
+# what we used to build all of this. When others are needed we'll have to add a
+# more elegant/efficient way to deal with it.
+#
+# Also note this is all on ONE line, Kickstart will puke if you even think
+# about breaking these up.
+VSPHERE="network --onboot yes --device ens192 --noipv6 --hostname=secops-packer-01 --bootproto=static --ip=10.106.6.70 --netmask=255.255.255.0 --gateway=10.106.6.1 --nameserver=10.106.6.16 --nameserver=10.106.6.17"
+
+# Boot for VirtualBox
+VBOX="network --bootproto=dhcp --onboot yes --noipv6"
+
+# Due to being called from anywhere we need to get our locations in order
+# to reference input/output paths correctly.
+MYNAME=`basename $0`
+MYDIR=`dirname $0`
+
+# The base Kickstart config file template. This is the one you'll need to 
+# modify if you want to include other things in the builds as they all
+# share and derive from this.
+BASE_TEMPLATE="base-template.cfg"
+
+# The output Kickstart we write to
+KSFILE="ks.cfg"
+
+# Here's where those paths are dealt with, relative ones just won't work being
+# called from Makefiles literally anywhere, we need to convert them to absolute
+# paths here. Use these names when you reference in/out locations/files.
+INFILE="$MYDIR/$BASE_TEMPLATE"
+OUTFILE="$MYDIR/$KSFILE"
+
+# Make sure we get a target to flip to
+# and if we do, set the var for it
+if [[ -z "$1" ]]; then
+    echo "Must give me a Flip to Kick to"
+    exit 1
+else
+    KICKFLIP="$1"
+    echo "$MYNAME: Kick-Flipping to $KICKFLIP"
+    echo "Input file: $INFILE"
+    echo "Output file: $OUTFILE"
+fi
+
+# Do the actual work, it's just a sed command
+case $KICKFLIP in
+    "vsphere")
+        cat $INFILE | sed -e s"/%%NETWORK%%/$VSPHERE/g" > $OUTFILE
+        echo "Kick-Flip to vSphere"
+        exit 0
+        ;;
+    "vbox")
+        cat $INFILE | sed -e s"/%%NETWORK%%/$VBOX/g" > $OUTFILE
+        echo "Kick-Flip to vBox"
+        exit 0
+        ;;
+    *) 
+        echo "Invalid Kick-Flip: $KICKFLIP"
+        exit 1
+        ;;
+esac

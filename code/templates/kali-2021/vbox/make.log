@@ -1,336 +1,344 @@
 Validating kali2021-vbox-iso.json
 /usr/local/bin/packer validate kali2021-vbox-iso.json
-Building kali2021-vbox-iso.json, opts: -timestamp-ui
-/usr/local/bin/packer build -timestamp-ui kali2021-vbox-iso.json
-[1;32mvirtualbox-iso: output will be in this color.[0m
+Cleaning...
+rm -fr vagrant/*.box
+rm -fr output-virtualbox-iso
+rm -fr packer-kali-2021.checksum
+rm -fr packer-kali-2021.manifest
+Building kali2021-vbox-iso.json, opts: -timestamp-ui -color=false
+/usr/local/bin/packer build -timestamp-ui -color=false kali2021-vbox-iso.json
+2021-03-05T15:52:45-06:00: ==> virtualbox-iso: Retrieving Guest additions
+2021-03-05T15:52:45-06:00: ==> virtualbox-iso: Trying /Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso
+2021-03-05T15:52:45-06:00: ==> virtualbox-iso: Trying /Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso
+2021-03-05T15:52:45-06:00: ==> virtualbox-iso: /Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso => /Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso
+2021-03-05T15:52:45-06:00: ==> virtualbox-iso: Retrieving ISO
+2021-03-05T15:52:45-06:00: ==> virtualbox-iso: Trying iso/kali-linux-2021.1-installer-amd64.iso
+2021-03-05T15:52:45-06:00: ==> virtualbox-iso: Trying iso/kali-linux-2021.1-installer-amd64.iso?checksum=sha256%3A265812bc13ab11d40c610424871bdf9198b9e7cad99b06540d96fac67dd704de
+2021-03-05T15:52:54-06:00: ==> virtualbox-iso: iso/kali-linux-2021.1-installer-amd64.iso?checksum=sha256%3A265812bc13ab11d40c610424871bdf9198b9e7cad99b06540d96fac67dd704de => /Users/darren.young/src/github/PackerDemo/code/templates/kali-2021/vbox/packer_cache/74d4febc7bca660a3eea6db94a402ea0bc07e247.iso
+2021-03-05T15:52:54-06:00: ==> virtualbox-iso: Starting HTTP server on port 8820
+2021-03-05T15:52:54-06:00: ==> virtualbox-iso: Creating virtual machine...
+2021-03-05T15:52:55-06:00: ==> virtualbox-iso: Creating hard drive...
+2021-03-05T15:52:55-06:00: ==> virtualbox-iso: Mounting ISOs...
+2021-03-05T15:52:55-06:00:     virtualbox-iso: Mounting boot ISO...
+2021-03-05T15:52:55-06:00: ==> virtualbox-iso: Creating forwarded port mapping for communicator (SSH, WinRM, etc) (host port 3510)
+2021-03-05T15:52:55-06:00: ==> virtualbox-iso: Executing custom VBoxManage commands...
+2021-03-05T15:52:55-06:00:     virtualbox-iso: Executing: modifyvm packer-kali-2021 --memory 4096
+2021-03-05T15:52:55-06:00:     virtualbox-iso: Executing: modifyvm packer-kali-2021 --cpus 1
+2021-03-05T15:52:55-06:00: ==> virtualbox-iso: Starting the virtual machine...
+2021-03-05T15:52:57-06:00: ==> virtualbox-iso: Waiting 10s for boot...
+2021-03-05T15:53:07-06:00: ==> virtualbox-iso: Typing the boot command...
+2021-03-05T15:53:52-06:00: ==> virtualbox-iso: Using ssh communicator to connect: 127.0.0.1
+2021-03-05T15:53:52-06:00: ==> virtualbox-iso: Waiting for SSH to become available...
+2021-03-05T16:10:36-06:00: ==> virtualbox-iso: Connected to SSH!
+2021-03-05T16:10:36-06:00: ==> virtualbox-iso: Uploading VirtualBox version info (6.1.12)
+2021-03-05T16:10:36-06:00: ==> virtualbox-iso: Uploading VirtualBox guest additions ISO...
+2021-03-05T16:10:36-06:00: ==> virtualbox-iso: Provisioning with shell script: scripts/update-apt.sh
+2021-03-05T16:10:36-06:00: ==> virtualbox-iso:
+2021-03-05T16:10:36-06:00: ==> virtualbox-iso: We trust you have received the usual lecture from the local System
+2021-03-05T16:10:36-06:00: ==> virtualbox-iso: Administrator. It usually boils down to these three things:
+2021-03-05T16:10:36-06:00: ==> virtualbox-iso:
+2021-03-05T16:10:36-06:00: ==> virtualbox-iso:     #1) Respect the privacy of others.
+2021-03-05T16:10:36-06:00: ==> virtualbox-iso:     #2) Think before you type.
+2021-03-05T16:10:36-06:00: ==> virtualbox-iso:     #3) With great power comes great responsibility.
+2021-03-05T16:10:36-06:00: ==> virtualbox-iso:
+2021-03-05T16:10:37-06:00:     virtualbox-iso: Hit:1 http://kali.download/kali kali-rolling InRelease
+2021-03-05T16:10:39-06:00:     virtualbox-iso: Reading package lists...
+2021-03-05T16:10:39-06:00:     virtualbox-iso: Reading package lists...
+2021-03-05T16:10:40-06:00:     virtualbox-iso: Building dependency tree...
+2021-03-05T16:10:40-06:00:     virtualbox-iso: Reading state information...
+2021-03-05T16:10:40-06:00:     virtualbox-iso: Calculating upgrade...
+2021-03-05T16:10:40-06:00:     virtualbox-iso: The following packages will be upgraded:
+2021-03-05T16:10:40-06:00:     virtualbox-iso:   apparmor apt apt-utils bash bsdextrautils bsdmainutils bsdutils calendar
+2021-03-05T16:10:40-06:00:     virtualbox-iso:   console-setup console-setup-linux eject fdisk keyboard-configuration
+2021-03-05T16:10:40-06:00:     virtualbox-iso:   libapparmor1 libapt-pkg6.0 libblkid1 libdns-export1110 libfdisk1 libgcrypt20
+2021-03-05T16:10:40-06:00:     virtualbox-iso:   libisc-export1105 libjson-c5 libmount1 libselinux1 libsmartcols1 libssl1.1
+2021-03-05T16:10:40-06:00:     virtualbox-iso:   libuuid1 libzstd1 mount nano ncal openssl rsyslog sysvinit-utils tar
+2021-03-05T16:10:40-06:00:     virtualbox-iso:   util-linux
+2021-03-05T16:10:41-06:00:     virtualbox-iso: 35 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+2021-03-05T16:10:41-06:00:     virtualbox-iso: Need to get 17.5 MB of archives.
+2021-03-05T16:10:41-06:00:     virtualbox-iso: After this operation, 115 kB disk space will be freed.
+2021-03-05T16:10:41-06:00:     virtualbox-iso: Get:1 http://kali.download/kali kali-rolling/main amd64 bash amd64 5.1-2+b1 [1,417 kB]
+2021-03-05T16:10:42-06:00:     virtualbox-iso: Get:2 http://kali.download/kali kali-rolling/main amd64 bsdutils amd64 1:2.36.1-7 [148 kB]
+2021-03-05T16:10:42-06:00:     virtualbox-iso: Get:3 http://kali.download/kali kali-rolling/main amd64 tar amd64 1.34+dfsg-1 [847 kB]
+2021-03-05T16:10:43-06:00:     virtualbox-iso: Get:4 http://kali.download/kali kali-rolling/main amd64 libblkid1 amd64 2.36.1-7 [193 kB]
+2021-03-05T16:10:43-06:00:     virtualbox-iso: Get:5 http://kali.download/kali kali-rolling/main amd64 libuuid1 amd64 2.36.1-7 [83.6 kB]
+2021-03-05T16:10:43-06:00:     virtualbox-iso: Get:6 http://kali.download/kali kali-rolling/main amd64 libfdisk1 amd64 2.36.1-7 [237 kB]
+2021-03-05T16:10:44-06:00:     virtualbox-iso: Get:7 http://kali.download/kali kali-rolling/main amd64 libselinux1 amd64 3.1-3 [88.1 kB]
+2021-03-05T16:10:44-06:00:     virtualbox-iso: Get:8 http://kali.download/kali kali-rolling/main amd64 libmount1 amd64 2.36.1-7 [211 kB]
+2021-03-05T16:10:44-06:00:     virtualbox-iso: Get:9 http://kali.download/kali kali-rolling/main amd64 libsmartcols1 amd64 2.36.1-7 [157 kB]
+2021-03-05T16:10:45-06:00:     virtualbox-iso: Get:10 http://kali.download/kali kali-rolling/main amd64 fdisk amd64 2.36.1-7 [192 kB]
+2021-03-05T16:10:45-06:00:     virtualbox-iso: Get:11 http://kali.download/kali kali-rolling/main amd64 util-linux amd64 2.36.1-7 [1,138 kB]
+2021-03-05T16:10:46-06:00:     virtualbox-iso: Get:12 http://kali.download/kali kali-rolling/main amd64 libgcrypt20 amd64 1.8.7-3 [563 kB]
+2021-03-05T16:10:47-06:00:     virtualbox-iso: Get:13 http://kali.download/kali kali-rolling/main amd64 libzstd1 amd64 1.4.8+dfsg-2 [321 kB]
+2021-03-05T16:10:47-06:00:     virtualbox-iso: Get:14 http://kali.download/kali kali-rolling/main amd64 libapt-pkg6.0 amd64 2.2.0 [1,012 kB]
+2021-03-05T16:10:48-06:00:     virtualbox-iso: Get:15 http://kali.download/kali kali-rolling/main amd64 apt amd64 2.2.0 [1,491 kB]
+2021-03-05T16:10:48-06:00:     virtualbox-iso: Get:16 http://kali.download/kali kali-rolling/main amd64 apt-utils amd64 2.2.0 [438 kB]
+2021-03-05T16:10:48-06:00:     virtualbox-iso: Get:17 http://kali.download/kali kali-rolling/main amd64 sysvinit-utils amd64 2.96-6 [25.2 kB]
+2021-03-05T16:10:48-06:00:     virtualbox-iso: Get:18 http://kali.download/kali kali-rolling/main amd64 mount amd64 2.36.1-7 [186 kB]
+2021-03-05T16:10:49-06:00:     virtualbox-iso: Get:19 http://kali.download/kali kali-rolling/main amd64 rsyslog amd64 8.2102.0-2 [703 kB]
+2021-03-05T16:10:49-06:00:     virtualbox-iso: Get:20 http://kali.download/kali kali-rolling/main amd64 bsdextrautils amd64 2.36.1-7 [145 kB]
+2021-03-05T16:10:49-06:00:     virtualbox-iso: Get:21 http://kali.download/kali kali-rolling/main amd64 console-setup-linux all 1.201 [1,872 kB]
+2021-03-05T16:10:49-06:00:     virtualbox-iso: Get:22 http://kali.download/kali kali-rolling/main amd64 console-setup all 1.201 [99.9 kB]
+2021-03-05T16:10:50-06:00:     virtualbox-iso: Get:23 http://kali.download/kali kali-rolling/main amd64 keyboard-configuration all 1.201 [423 kB]
+2021-03-05T16:10:50-06:00:     virtualbox-iso: Get:24 http://kali.download/kali kali-rolling/main amd64 libssl1.1 amd64 1.1.1j-1 [1,554 kB]
+2021-03-05T16:10:50-06:00:     virtualbox-iso: Get:25 http://kali.download/kali kali-rolling/main amd64 nano amd64 5.4-2 [657 kB]
+2021-03-05T16:10:50-06:00:     virtualbox-iso: Get:26 http://kali.download/kali kali-rolling/main amd64 apparmor amd64 2.13.6-9 [640 kB]
+2021-03-05T16:10:50-06:00:     virtualbox-iso: Get:27 http://kali.download/kali kali-rolling/main amd64 ncal amd64 12.1.7+nmu2 [30.0 kB]
+2021-03-05T16:10:51-06:00:     virtualbox-iso: Get:28 http://kali.download/kali kali-rolling/main amd64 calendar amd64 12.1.7+nmu2 [132 kB]
+2021-03-05T16:10:51-06:00:     virtualbox-iso: Get:29 http://kali.download/kali kali-rolling/main amd64 bsdmainutils all 12.1.7+nmu2 [16.3 kB]
+2021-03-05T16:10:51-06:00:     virtualbox-iso: Get:30 http://kali.download/kali kali-rolling/main amd64 eject amd64 2.36.1-7 [102 kB]
+2021-03-05T16:10:51-06:00:     virtualbox-iso: Get:31 http://kali.download/kali kali-rolling/main amd64 libapparmor1 amd64 2.13.6-9 [99.3 kB]
+2021-03-05T16:10:51-06:00:     virtualbox-iso: Get:32 http://kali.download/kali kali-rolling/main amd64 libisc-export1105 amd64 1:9.11.19+dfsg-2 [397 kB]
+2021-03-05T16:10:51-06:00:     virtualbox-iso: Get:33 http://kali.download/kali kali-rolling/main amd64 libdns-export1110 amd64 1:9.11.19+dfsg-2 [987 kB]
+2021-03-05T16:10:52-06:00:     virtualbox-iso: Get:34 http://kali.download/kali kali-rolling/main amd64 libjson-c5 amd64 0.15-2 [42.8 kB]
+2021-03-05T16:10:52-06:00:     virtualbox-iso: Get:35 http://kali.download/kali kali-rolling/main amd64 openssl amd64 1.1.1j-1 [850 kB]
+2021-03-05T16:10:54-06:00:     virtualbox-iso: apt-listchanges: Reading changelogs...
+2021-03-05T16:10:54-06:00:     virtualbox-iso: Preconfiguring packages ...
+2021-03-05T16:10:54-06:00:     virtualbox-iso: Fetched 17.5 MB in 12s (1,405 kB/s)
+2021-03-05T16:10:55-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)
+2021-03-05T16:10:55-06:00:     virtualbox-iso: Preparing to unpack .../bash_5.1-2+b1_amd64.deb ...
+2021-03-05T16:10:55-06:00:     virtualbox-iso: Unpacking bash (5.1-2+b1) over (5.1-2) ...
+2021-03-05T16:10:55-06:00:     virtualbox-iso: Setting up bash (5.1-2+b1) ...
+2021-03-05T16:10:55-06:00:     virtualbox-iso: update-alternatives: using /usr/share/man/man7/bash-builtins.7.gz to provide /usr/share/man/man7/builtins.7.gz (builtins.7.gz) in auto mode
+2021-03-05T16:10:55-06:00:     virtualbox-iso: (Reading database ... 293093 files and directories currently installed.)
+2021-03-05T16:10:55-06:00:     virtualbox-iso: Preparing to unpack .../bsdutils_1%3a2.36.1-7_amd64.deb ...
+2021-03-05T16:10:55-06:00:     virtualbox-iso: Unpacking bsdutils (1:2.36.1-7) over (1:2.36.1-6) ...
+2021-03-05T16:10:56-06:00:     virtualbox-iso: Setting up bsdutils (1:2.36.1-7) ...
+2021-03-05T16:10:56-06:00:     virtualbox-iso: (Reading database ... 293093 files and directories currently installed.)
+2021-03-05T16:10:56-06:00:     virtualbox-iso: Preparing to unpack .../tar_1.34+dfsg-1_amd64.deb ...
+2021-03-05T16:10:56-06:00:     virtualbox-iso: Unpacking tar (1.34+dfsg-1) over (1.32+dfsg-1) ...
+2021-03-05T16:10:56-06:00:     virtualbox-iso: Setting up tar (1.34+dfsg-1) ...
+2021-03-05T16:10:56-06:00:     virtualbox-iso: (Reading database ... 293093 files and directories currently installed.)
+2021-03-05T16:10:56-06:00:     virtualbox-iso: Preparing to unpack .../libblkid1_2.36.1-7_amd64.deb ...
+2021-03-05T16:10:56-06:00:     virtualbox-iso: Unpacking libblkid1:amd64 (2.36.1-7) over (2.36.1-6) ...
+2021-03-05T16:10:56-06:00:     virtualbox-iso: Setting up libblkid1:amd64 (2.36.1-7) ...
+2021-03-05T16:10:56-06:00:     virtualbox-iso: (Reading database ... 293093 files and directories currently installed.)
+2021-03-05T16:10:56-06:00:     virtualbox-iso: Preparing to unpack .../libuuid1_2.36.1-7_amd64.deb ...
+2021-03-05T16:10:56-06:00:     virtualbox-iso: Unpacking libuuid1:amd64 (2.36.1-7) over (2.36.1-6) ...
+2021-03-05T16:10:56-06:00:     virtualbox-iso: Setting up libuuid1:amd64 (2.36.1-7) ...
+2021-03-05T16:10:57-06:00:     virtualbox-iso: (Reading database ... 293093 files and directories currently installed.)
+2021-03-05T16:10:57-06:00:     virtualbox-iso: Preparing to unpack .../libfdisk1_2.36.1-7_amd64.deb ...
+2021-03-05T16:10:57-06:00:     virtualbox-iso: Unpacking libfdisk1:amd64 (2.36.1-7) over (2.36.1-6) ...
+2021-03-05T16:10:57-06:00:     virtualbox-iso: Preparing to unpack .../libselinux1_3.1-3_amd64.deb ...
+2021-03-05T16:10:57-06:00:     virtualbox-iso: Unpacking libselinux1:amd64 (3.1-3) over (3.1-2+b2) ...
+2021-03-05T16:10:57-06:00:     virtualbox-iso: Setting up libselinux1:amd64 (3.1-3) ...
+2021-03-05T16:10:57-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)
+2021-03-05T16:10:57-06:00:     virtualbox-iso: Preparing to unpack .../libmount1_2.36.1-7_amd64.deb ...
+2021-03-05T16:10:57-06:00:     virtualbox-iso: Unpacking libmount1:amd64 (2.36.1-7) over (2.36.1-6) ...
+2021-03-05T16:10:57-06:00:     virtualbox-iso: Setting up libmount1:amd64 (2.36.1-7) ...
+2021-03-05T16:10:57-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)
+2021-03-05T16:10:57-06:00:     virtualbox-iso: Preparing to unpack .../libsmartcols1_2.36.1-7_amd64.deb ...
+2021-03-05T16:10:57-06:00:     virtualbox-iso: Unpacking libsmartcols1:amd64 (2.36.1-7) over (2.36.1-6) ...
+2021-03-05T16:10:57-06:00:     virtualbox-iso: Setting up libsmartcols1:amd64 (2.36.1-7) ...
+2021-03-05T16:10:58-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)
+2021-03-05T16:10:58-06:00:     virtualbox-iso: Preparing to unpack .../fdisk_2.36.1-7_amd64.deb ...
+2021-03-05T16:10:58-06:00:     virtualbox-iso: Unpacking fdisk (2.36.1-7) over (2.36.1-6) ...
+2021-03-05T16:10:58-06:00:     virtualbox-iso: Preparing to unpack .../util-linux_2.36.1-7_amd64.deb ...
+2021-03-05T16:10:58-06:00:     virtualbox-iso: Unpacking util-linux (2.36.1-7) over (2.36.1-6) ...
+2021-03-05T16:10:58-06:00:     virtualbox-iso: Setting up util-linux (2.36.1-7) ...
+2021-03-05T16:10:59-06:00:     virtualbox-iso: fstrim.service is a disabled or a static unit not running, not starting it.
+2021-03-05T16:10:59-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)
+2021-03-05T16:10:59-06:00:     virtualbox-iso: Preparing to unpack .../libgcrypt20_1.8.7-3_amd64.deb ...
+2021-03-05T16:10:59-06:00:     virtualbox-iso: Unpacking libgcrypt20:amd64 (1.8.7-3) over (1.8.7-2) ...
+2021-03-05T16:10:59-06:00:     virtualbox-iso: Setting up libgcrypt20:amd64 (1.8.7-3) ...
+2021-03-05T16:10:59-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)
+2021-03-05T16:10:59-06:00:     virtualbox-iso: Preparing to unpack .../libzstd1_1.4.8+dfsg-2_amd64.deb ...
+2021-03-05T16:10:59-06:00:     virtualbox-iso: Unpacking libzstd1:amd64 (1.4.8+dfsg-2) over (1.4.8+dfsg-1) ...
+2021-03-05T16:10:59-06:00:     virtualbox-iso: Setting up libzstd1:amd64 (1.4.8+dfsg-2) ...
+2021-03-05T16:10:59-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)
+2021-03-05T16:10:59-06:00:     virtualbox-iso: Preparing to unpack .../libapt-pkg6.0_2.2.0_amd64.deb ...
+2021-03-05T16:10:59-06:00:     virtualbox-iso: Unpacking libapt-pkg6.0:amd64 (2.2.0) over (2.1.20) ...
+2021-03-05T16:11:00-06:00:     virtualbox-iso: Setting up libapt-pkg6.0:amd64 (2.2.0) ...
+2021-03-05T16:11:00-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)
+2021-03-05T16:11:00-06:00:     virtualbox-iso: Preparing to unpack .../archives/apt_2.2.0_amd64.deb ...
+2021-03-05T16:11:00-06:00:     virtualbox-iso: Unpacking apt (2.2.0) over (2.1.20) ...
+2021-03-05T16:11:00-06:00:     virtualbox-iso: Setting up apt (2.2.0) ...
+2021-03-05T16:11:01-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)
+2021-03-05T16:11:01-06:00:     virtualbox-iso: Preparing to unpack .../apt-utils_2.2.0_amd64.deb ...
+2021-03-05T16:11:01-06:00:     virtualbox-iso: Unpacking apt-utils (2.2.0) over (2.1.20) ...
+2021-03-05T16:11:01-06:00:     virtualbox-iso: Preparing to unpack .../sysvinit-utils_2.96-6_amd64.deb ...
+2021-03-05T16:11:01-06:00:     virtualbox-iso: Unpacking sysvinit-utils (2.96-6) over (2.96-5) ...
+2021-03-05T16:11:01-06:00:     virtualbox-iso: Setting up sysvinit-utils (2.96-6) ...
+2021-03-05T16:11:01-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)
+2021-03-05T16:11:01-06:00:     virtualbox-iso: Preparing to unpack .../0-mount_2.36.1-7_amd64.deb ...
+2021-03-05T16:11:01-06:00:     virtualbox-iso: Unpacking mount (2.36.1-7) over (2.36.1-6) ...
+2021-03-05T16:11:01-06:00:     virtualbox-iso: Preparing to unpack .../1-rsyslog_8.2102.0-2_amd64.deb ...
+2021-03-05T16:11:01-06:00:     virtualbox-iso: Unpacking rsyslog (8.2102.0-2) over (8.2012.0-1) ...
+2021-03-05T16:11:01-06:00:     virtualbox-iso: Preparing to unpack .../2-bsdextrautils_2.36.1-7_amd64.deb ...
+2021-03-05T16:11:01-06:00:     virtualbox-iso: Unpacking bsdextrautils (2.36.1-7) over (2.36.1-6) ...
+2021-03-05T16:11:01-06:00:     virtualbox-iso: Preparing to unpack .../3-console-setup-linux_1.201_all.deb ...
+2021-03-05T16:11:01-06:00:     virtualbox-iso: Unpacking console-setup-linux (1.201) over (1.200) ...
+2021-03-05T16:11:02-06:00:     virtualbox-iso: Preparing to unpack .../4-console-setup_1.201_all.deb ...
+2021-03-05T16:11:02-06:00:     virtualbox-iso: Unpacking console-setup (1.201) over (1.200) ...
+2021-03-05T16:11:02-06:00:     virtualbox-iso: Preparing to unpack .../5-keyboard-configuration_1.201_all.deb ...
+2021-03-05T16:11:02-06:00:     virtualbox-iso: Unpacking keyboard-configuration (1.201) over (1.200) ...
+2021-03-05T16:11:02-06:00:     virtualbox-iso: Preparing to unpack .../6-libssl1.1_1.1.1j-1_amd64.deb ...
+2021-03-05T16:11:02-06:00:     virtualbox-iso: Unpacking libssl1.1:amd64 (1.1.1j-1) over (1.1.1i-3) ...
+2021-03-05T16:11:02-06:00:     virtualbox-iso: Setting up libssl1.1:amd64 (1.1.1j-1) ...
+2021-03-05T16:11:02-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)
+2021-03-05T16:11:02-06:00:     virtualbox-iso: Preparing to unpack .../00-nano_5.4-2_amd64.deb ...
+2021-03-05T16:11:02-06:00:     virtualbox-iso: Unpacking nano (5.4-2) over (5.4-1) ...
+2021-03-05T16:11:03-06:00:     virtualbox-iso: Preparing to unpack .../01-apparmor_2.13.6-9_amd64.deb ...
+2021-03-05T16:11:03-06:00:     virtualbox-iso: Unpacking apparmor (2.13.6-9) over (2.13.6-7) ...
+2021-03-05T16:11:03-06:00:     virtualbox-iso: Preparing to unpack .../02-ncal_12.1.7+nmu2_amd64.deb ...
+2021-03-05T16:11:03-06:00:     virtualbox-iso: Unpacking ncal (12.1.7+nmu2) over (12.1.7) ...
+2021-03-05T16:11:03-06:00:     virtualbox-iso: Preparing to unpack .../03-calendar_12.1.7+nmu2_amd64.deb ...
+2021-03-05T16:11:03-06:00:     virtualbox-iso: Unpacking calendar (12.1.7+nmu2) over (12.1.7) ...
+2021-03-05T16:11:03-06:00:     virtualbox-iso: Preparing to unpack .../04-bsdmainutils_12.1.7+nmu2_all.deb ...
+2021-03-05T16:11:03-06:00:     virtualbox-iso: Unpacking bsdmainutils (12.1.7+nmu2) over (12.1.7) ...
+2021-03-05T16:11:03-06:00:     virtualbox-iso: Preparing to unpack .../05-eject_2.36.1-7_amd64.deb ...
+2021-03-05T16:11:03-06:00:     virtualbox-iso: Unpacking eject (2.36.1-7) over (2.36.1-6) ...
+2021-03-05T16:11:03-06:00:     virtualbox-iso: Preparing to unpack .../06-libapparmor1_2.13.6-9_amd64.deb ...
+2021-03-05T16:11:03-06:00:     virtualbox-iso: Unpacking libapparmor1:amd64 (2.13.6-9) over (2.13.6-7) ...
+2021-03-05T16:11:03-06:00:     virtualbox-iso: Preparing to unpack .../07-libisc-export1105_1%3a9.11.19+dfsg-2_amd64.deb ...
+2021-03-05T16:11:03-06:00:     virtualbox-iso: Unpacking libisc-export1105:amd64 (1:9.11.19+dfsg-2) over (1:9.11.19+dfsg-1) ...
+2021-03-05T16:11:03-06:00:     virtualbox-iso: Preparing to unpack .../08-libdns-export1110_1%3a9.11.19+dfsg-2_amd64.deb ...
+2021-03-05T16:11:03-06:00:     virtualbox-iso: Unpacking libdns-export1110 (1:9.11.19+dfsg-2) over (1:9.11.19+dfsg-1) ...
+2021-03-05T16:11:03-06:00:     virtualbox-iso: Preparing to unpack .../09-libjson-c5_0.15-2_amd64.deb ...
+2021-03-05T16:11:03-06:00:     virtualbox-iso: Unpacking libjson-c5:amd64 (0.15-2) over (0.15-1) ...
+2021-03-05T16:11:04-06:00:     virtualbox-iso: Preparing to unpack .../10-openssl_1.1.1j-1_amd64.deb ...
+2021-03-05T16:11:04-06:00:     virtualbox-iso: Unpacking openssl (1.1.1j-1) over (1.1.1i-3) ...
+2021-03-05T16:11:04-06:00:     virtualbox-iso: Setting up libapparmor1:amd64 (2.13.6-9) ...
+2021-03-05T16:11:04-06:00:     virtualbox-iso: Setting up apt-utils (2.2.0) ...
+2021-03-05T16:11:04-06:00:     virtualbox-iso: Setting up bsdextrautils (2.36.1-7) ...
+2021-03-05T16:11:04-06:00:     virtualbox-iso: Setting up ncal (12.1.7+nmu2) ...
+2021-03-05T16:11:04-06:00:     virtualbox-iso: Setting up rsyslog (8.2102.0-2) ...
+2021-03-05T16:11:04-06:00:     virtualbox-iso: Installing new version of config file /etc/logrotate.d/rsyslog ...
+2021-03-05T16:11:04-06:00:     virtualbox-iso: Installing new version of config file /etc/rsyslog.conf ...
+2021-03-05T16:11:04-06:00:     virtualbox-iso: Setting up eject (2.36.1-7) ...
+2021-03-05T16:11:04-06:00:     virtualbox-iso: Setting up apparmor (2.13.6-9) ...
+2021-03-05T16:11:05-06:00:     virtualbox-iso: Reloading AppArmor profiles
+2021-03-05T16:11:05-06:00:     virtualbox-iso: Setting up libisc-export1105:amd64 (1:9.11.19+dfsg-2) ...
+2021-03-05T16:11:05-06:00:     virtualbox-iso: Setting up bsdmainutils (12.1.7+nmu2) ...
+2021-03-05T16:11:05-06:00:     virtualbox-iso: Setting up calendar (12.1.7+nmu2) ...
+2021-03-05T16:11:05-06:00:     virtualbox-iso: Setting up libfdisk1:amd64 (2.36.1-7) ...
+2021-03-05T16:11:05-06:00:     virtualbox-iso: Setting up nano (5.4-2) ...
+2021-03-05T16:11:05-06:00:     virtualbox-iso: Setting up mount (2.36.1-7) ...
+2021-03-05T16:11:05-06:00:     virtualbox-iso: Setting up keyboard-configuration (1.201) ...
+2021-03-05T16:11:06-06:00:     virtualbox-iso: Setting up openssl (1.1.1j-1) ...
+2021-03-05T16:11:06-06:00:     virtualbox-iso: Setting up libjson-c5:amd64 (0.15-2) ...
+2021-03-05T16:11:06-06:00:     virtualbox-iso: Setting up libdns-export1110 (1:9.11.19+dfsg-2) ...
+2021-03-05T16:11:06-06:00:     virtualbox-iso: Setting up fdisk (2.36.1-7) ...
+2021-03-05T16:11:06-06:00:     virtualbox-iso: Setting up console-setup-linux (1.201) ...
+2021-03-05T16:11:07-06:00:     virtualbox-iso: Setting up console-setup (1.201) ...
+2021-03-05T16:11:07-06:00:     virtualbox-iso: Processing triggers for libc-bin (2.31-9) ...
+2021-03-05T16:11:07-06:00:     virtualbox-iso: Processing triggers for man-db (2.9.4-2) ...
+2021-03-05T16:11:12-06:00:     virtualbox-iso: Processing triggers for mailcap (3.68) ...
+2021-03-05T16:11:12-06:00:     virtualbox-iso: Processing triggers for kali-menu (2021.1.4) ...
+2021-03-05T16:11:12-06:00: ==> virtualbox-iso: [sudo] password for kali:
+2021-03-05T16:11:12-06:00: ==> virtualbox-iso: Provisioning with shell script: scripts/virtualbox-guest-additions.sh
+2021-03-05T16:11:13-06:00:     virtualbox-iso: Hit:1 http://kali.download/kali kali-rolling InRelease
+2021-03-05T16:11:15-06:00:     virtualbox-iso: Reading package lists...
+2021-03-05T16:11:15-06:00:     virtualbox-iso: Reading package lists...
+2021-03-05T16:11:15-06:00:     virtualbox-iso: Building dependency tree...
+2021-03-05T16:11:15-06:00:     virtualbox-iso: Reading state information...
+2021-03-05T16:11:15-06:00:     virtualbox-iso: Calculating upgrade...
+2021-03-05T16:11:15-06:00:     virtualbox-iso: 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+2021-03-05T16:11:15-06:00:     virtualbox-iso: Reading package lists...
+2021-03-05T16:11:15-06:00:     virtualbox-iso: Building dependency tree...
+2021-03-05T16:11:15-06:00:     virtualbox-iso: Reading state information...
+2021-03-05T16:11:15-06:00:     virtualbox-iso: virtualbox-guest-x11 is already the newest version (6.1.18-dfsg-2).
+2021-03-05T16:11:15-06:00:     virtualbox-iso: 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+2021-03-05T16:11:15-06:00: ==> virtualbox-iso: [sudo] password for kali:
+2021-03-05T16:11:15-06:00: ==> virtualbox-iso: Provisioning with shell script: scripts/install-ansible.sh
+2021-03-05T16:11:15-06:00:     virtualbox-iso: Reading package lists...
+2021-03-05T16:11:16-06:00:     virtualbox-iso: Building dependency tree...
+2021-03-05T16:11:16-06:00:     virtualbox-iso: Reading state information...
+2021-03-05T16:11:16-06:00:     virtualbox-iso: python3-pip is already the newest version (20.1.1-2).
+2021-03-05T16:11:16-06:00:     virtualbox-iso: python3-pip set to manually installed.
+2021-03-05T16:11:16-06:00:     virtualbox-iso: 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+2021-03-05T16:11:18-06:00:     virtualbox-iso: Collecting ansible
+2021-03-05T16:11:23-06:00:     virtualbox-iso:   Downloading ansible-3.0.0.tar.gz (30.8 MB)
+2021-03-05T16:11:48-06:00:     virtualbox-iso: Collecting ansible-base<2.11,>=2.10.5
+2021-03-05T16:11:48-06:00:     virtualbox-iso:   Downloading ansible-base-2.10.6.tar.gz (5.7 MB)
+2021-03-05T16:11:51-06:00:     virtualbox-iso: Requirement already satisfied, skipping upgrade: PyYAML in /usr/lib/python3/dist-packages (from ansible-base<2.11,>=2.10.5->ansible) (5.3.1)
+2021-03-05T16:11:51-06:00:     virtualbox-iso: Requirement already satisfied, skipping upgrade: cryptography in /usr/lib/python3/dist-packages (from ansible-base<2.11,>=2.10.5->ansible) (3.3.2)
+2021-03-05T16:11:51-06:00:     virtualbox-iso: Requirement already satisfied, skipping upgrade: jinja2 in /usr/lib/python3/dist-packages (from ansible-base<2.11,>=2.10.5->ansible) (2.11.2)
+2021-03-05T16:11:51-06:00:     virtualbox-iso: Requirement already satisfied, skipping upgrade: packaging in /usr/lib/python3/dist-packages (from ansible-base<2.11,>=2.10.5->ansible) (20.9)
+2021-03-05T16:11:51-06:00:     virtualbox-iso: Building wheels for collected packages: ansible, ansible-base
+2021-03-05T16:11:51-06:00:     virtualbox-iso:   Building wheel for ansible (setup.py): started
+2021-03-05T16:12:14-06:00:     virtualbox-iso:   Building wheel for ansible (setup.py): finished with status 'done'
+2021-03-05T16:12:14-06:00:     virtualbox-iso:   Created wheel for ansible: filename=ansible-3.0.0-py3-none-any.whl size=51827969 sha256=4c39655b58f585ac76c589edecb5ee17c467f6909a4b6653cff1ca776d701ad2
+2021-03-05T16:12:14-06:00:     virtualbox-iso:   Stored in directory: /root/.cache/pip/wheels/74/f9/f8/dfd4eec11522b3db4d2d90dffc2a1d28695e9a341b85fc84a4
+2021-03-05T16:12:14-06:00:     virtualbox-iso:   Building wheel for ansible-base (setup.py): started
+2021-03-05T16:12:15-06:00:     virtualbox-iso:   Building wheel for ansible-base (setup.py): finished with status 'done'
+2021-03-05T16:12:15-06:00:     virtualbox-iso:   Created wheel for ansible-base: filename=ansible_base-2.10.6-py3-none-any.whl size=1871040 sha256=c750ad70f888a929b50455ca8e617ccd811f83ae71ac856cee6d0e4b0ec99524
+2021-03-05T16:12:15-06:00:     virtualbox-iso:   Stored in directory: /root/.cache/pip/wheels/36/ed/65/f166048b84b3d1a9149b95bc0770d747d683cdb917c30817b1
+2021-03-05T16:12:15-06:00:     virtualbox-iso: Successfully built ansible ansible-base
+2021-03-05T16:12:16-06:00:     virtualbox-iso: Installing collected packages: ansible-base, ansible
+2021-03-05T16:12:35-06:00:     virtualbox-iso: Successfully installed ansible-3.0.0 ansible-base-2.10.6
+2021-03-05T16:12:36-06:00: ==> virtualbox-iso: [sudo] password for kali:
+2021-03-05T16:12:36-06:00: ==> virtualbox-iso: Provisioning with shell script: scripts/setup.sh
+2021-03-05T16:12:36-06:00:     virtualbox-iso: Reading package lists...
+2021-03-05T16:12:37-06:00:     virtualbox-iso: Building dependency tree...
+2021-03-05T16:12:37-06:00:     virtualbox-iso: Reading state information...
+2021-03-05T16:12:37-06:00:     virtualbox-iso: haveged is already the newest version (1.9.14-1).
+2021-03-05T16:12:37-06:00:     virtualbox-iso: haveged set to manually installed.
+2021-03-05T16:12:37-06:00:     virtualbox-iso: 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+2021-03-05T16:12:37-06:00: ==> virtualbox-iso: [sudo] password for kali: Synchronizing state of haveged.service with SysV service script with /lib/systemd/systemd-sysv-install.
+2021-03-05T16:12:37-06:00: ==> virtualbox-iso: Executing: /lib/systemd/systemd-sysv-install enable haveged
+2021-03-05T16:12:37-06:00: ==> virtualbox-iso: Provisioning with Ansible...
+2021-03-05T16:12:37-06:00:     virtualbox-iso: Creating Ansible staging directory...
+2021-03-05T16:12:37-06:00:     virtualbox-iso: Creating directory: /tmp/packer-provisioner-ansible-local/6042a82d-1f26-7ffd-47e6-ac42ebe41529
+2021-03-05T16:12:37-06:00:     virtualbox-iso: Uploading main Playbook file...
+2021-03-05T16:12:38-06:00:     virtualbox-iso: Uploading inventory file...
+2021-03-05T16:12:38-06:00:     virtualbox-iso: Executing Ansible: cd /tmp/packer-provisioner-ansible-local/6042a82d-1f26-7ffd-47e6-ac42ebe41529 && ANSIBLE_FORCE_COLOR=1 PYTHONUNBUFFERED=1 ansible-playbook /tmp/packer-provisioner-ansible-local/6042a82d-1f26-7ffd-47e6-ac42ebe41529/ansible-bootstrap.yml --extra-vars "packer_build_name=virtualbox-iso packer_builder_type=virtualbox-iso packer_http_addr=10.0.2.2:8820 -o IdentitiesOnly=yes"  -c local -i /tmp/packer-provisioner-ansible-local/6042a82d-1f26-7ffd-47e6-ac42ebe41529/packer-provisioner-ansible-local361965725
+2021-03-05T16:12:38-06:00:     virtualbox-iso:
+2021-03-05T16:12:38-06:00:     virtualbox-iso: PLAY [all] *********************************************************************
+2021-03-05T16:12:38-06:00:     virtualbox-iso:
+2021-03-05T16:12:38-06:00:     virtualbox-iso: TASK [Gathering Facts] *********************************************************
+2021-03-05T16:12:39-06:00: ==> virtualbox-iso: [1;35m[WARNING]: Unhandled error in Python interpreter discovery for host 127.0.0.1:[0m
+2021-03-05T16:12:39-06:00: ==> virtualbox-iso: [1;35m'<' not supported between instances of 'str' and 'int'[0m
+2021-03-05T16:12:39-06:00: ==> virtualbox-iso: [1;35m[WARNING]: Platform linux on host 127.0.0.1 is using the discovered Python[0m
+2021-03-05T16:12:39-06:00:     virtualbox-iso: [0;32mok: [127.0.0.1][0m
+2021-03-05T16:12:39-06:00: ==> virtualbox-iso: [1;35minterpreter at /usr/bin/python, but future installation of another Python[0m
+2021-03-05T16:12:39-06:00: ==> virtualbox-iso: [1;35minterpreter could change the meaning of that path. See https://docs.ansible.com[0m
+2021-03-05T16:12:39-06:00: ==> virtualbox-iso: [1;35m/ansible/2.10/reference_appendices/interpreter_discovery.html for more[0m
+2021-03-05T16:12:39-06:00: ==> virtualbox-iso: [1;35minformation.[0m
+2021-03-05T16:12:39-06:00:     virtualbox-iso:
+2021-03-05T16:12:39-06:00:     virtualbox-iso: TASK [Add vagrant insecure SSH key] ********************************************
+2021-03-05T16:12:41-06:00:     virtualbox-iso: [0;33mchanged: [127.0.0.1][0m
+2021-03-05T16:12:41-06:00:     virtualbox-iso:
+2021-03-05T16:12:41-06:00:     virtualbox-iso: PLAY RECAP *********************************************************************
+2021-03-05T16:12:41-06:00:     virtualbox-iso: [0;33m127.0.0.1[0m                  : [0;32mok=2   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+2021-03-05T16:12:41-06:00:     virtualbox-iso:
+2021-03-05T16:12:41-06:00: ==> virtualbox-iso: Provisioning with shell script: scripts/cleanup.sh
+2021-03-05T16:12:41-06:00:     virtualbox-iso: Reading package lists...
+2021-03-05T16:12:41-06:00:     virtualbox-iso: Building dependency tree...
+2021-03-05T16:12:41-06:00:     virtualbox-iso: Reading state information...
+2021-03-05T16:12:41-06:00:     virtualbox-iso: 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+2021-03-05T16:12:41-06:00:     virtualbox-iso: Hit:1 http://kali.download/kali kali-rolling InRelease
+2021-03-05T16:12:43-06:00:     virtualbox-iso: Reading package lists...
+2021-03-05T16:12:43-06:00:     virtualbox-iso: Zeroing out disk...
+2021-03-05T16:15:02-06:00: ==> virtualbox-iso: dd: error writing '/EMPTY': No space left on device
+2021-03-05T16:15:02-06:00: ==> virtualbox-iso: 69318+0 records in
+2021-03-05T16:15:02-06:00: ==> virtualbox-iso: 69317+0 records out
+2021-03-05T16:15:02-06:00: ==> virtualbox-iso: 72684433408 bytes (73 GB, 68 GiB) copied, 138.497 s, 525 MB/s
+2021-03-05T16:15:02-06:00:     virtualbox-iso: Removing zero'd out space...
+2021-03-05T16:15:03-06:00: ==> virtualbox-iso: Gracefully halting virtual machine...
+2021-03-05T16:15:07-06:00: ==> virtualbox-iso: Preparing to export machine...
+2021-03-05T16:15:07-06:00:     virtualbox-iso: Deleting forwarded port mapping for the communicator (SSH, WinRM, etc) (host port 3510)
+2021-03-05T16:15:08-06:00: ==> virtualbox-iso: Exporting virtual machine...
+2021-03-05T16:15:08-06:00:     virtualbox-iso: Executing: export packer-kali-2021 --output output-virtualbox-iso/packer-kali-2021.ovf
+2021-03-05T16:20:07-06:00: ==> virtualbox-iso: Cleaning up floppy disk...
+2021-03-05T16:20:07-06:00: ==> virtualbox-iso: Keeping virtual machine registered with VirtualBox host (keep_registered = true)
+2021-03-05T16:20:07-06:00: ==> virtualbox-iso: Running post-processor: vagrant
+2021-03-05T16:20:07-06:00: ==> virtualbox-iso (vagrant): Creating a dummy Vagrant box to ensure the host system can create one correctly
+2021-03-05T16:20:07-06:00: ==> virtualbox-iso (vagrant): Creating Vagrant box for 'virtualbox' provider
+2021-03-05T16:20:07-06:00:     virtualbox-iso (vagrant): Copying from artifact: output-virtualbox-iso/packer-kali-2021-disk001.vmdk
+2021-03-05T16:20:11-06:00:     virtualbox-iso (vagrant): Copying from artifact: output-virtualbox-iso/packer-kali-2021.ovf
+2021-03-05T16:20:11-06:00:     virtualbox-iso (vagrant): Copying from artifact: output-virtualbox-iso/packer-kali-2021.vdi
+2021-03-05T16:20:29-06:00:     virtualbox-iso (vagrant): Renaming the OVF to box.ovf...
+2021-03-05T16:20:29-06:00:     virtualbox-iso (vagrant): Compressing: Vagrantfile
+2021-03-05T16:20:29-06:00:     virtualbox-iso (vagrant): Compressing: box.ovf
+2021-03-05T16:20:29-06:00:     virtualbox-iso (vagrant): Compressing: metadata.json
+2021-03-05T16:20:29-06:00:     virtualbox-iso (vagrant): Compressing: packer-kali-2021-disk001.vmdk
+2021-03-05T16:20:34-06:00:     virtualbox-iso (vagrant): Compressing: packer-kali-2021.vdi
+2021-03-05T16:20:58-06:00: ==> virtualbox-iso: Running post-processor: manifest
+2021-03-05T16:20:58-06:00: ==> virtualbox-iso: Running post-processor: checksum
+2021-03-05T16:21:45-06:00: Build 'virtualbox-iso' finished after 29 minutes 621 milliseconds.
 
-[1;32m2021-03-05T02:35:06-06:00: ==> virtualbox-iso: Retrieving Guest additions[0m
-[1;32m2021-03-05T02:35:06-06:00: ==> virtualbox-iso: Trying /Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso[0m
-[1;32m2021-03-05T02:35:06-06:00: ==> virtualbox-iso: Trying /Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso[0m
-[1;32m2021-03-05T02:35:06-06:00: ==> virtualbox-iso: /Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso => /Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso[0m
-[1;32m2021-03-05T02:35:06-06:00: ==> virtualbox-iso: Retrieving ISO[0m
-[1;32m2021-03-05T02:35:06-06:00: ==> virtualbox-iso: Trying iso/kali-linux-2021.1-installer-amd64.iso[0m
-[1;32m2021-03-05T02:35:06-06:00: ==> virtualbox-iso: Trying iso/kali-linux-2021.1-installer-amd64.iso?checksum=sha256%3A265812bc13ab11d40c610424871bdf9198b9e7cad99b06540d96fac67dd704de[0m
-[1;32m2021-03-05T02:35:16-06:00: ==> virtualbox-iso: iso/kali-linux-2021.1-installer-amd64.iso?checksum=sha256%3A265812bc13ab11d40c610424871bdf9198b9e7cad99b06540d96fac67dd704de => /Users/darren.young/src/github/PackerDemo/code/templates/kali-2021/vbox/packer_cache/74d4febc7bca660a3eea6db94a402ea0bc07e247.iso[0m
-[1;32m2021-03-05T02:35:16-06:00: ==> virtualbox-iso: Starting HTTP server on port 8391[0m
-[1;32m2021-03-05T02:35:16-06:00: ==> virtualbox-iso: Creating virtual machine...[0m
-[1;32m2021-03-05T02:35:16-06:00: ==> virtualbox-iso: Creating hard drive...[0m
-[1;32m2021-03-05T02:35:17-06:00: ==> virtualbox-iso: Mounting ISOs...[0m
-[0;32m2021-03-05T02:35:17-06:00:     virtualbox-iso: Mounting boot ISO...[0m
-[1;32m2021-03-05T02:35:17-06:00: ==> virtualbox-iso: Creating forwarded port mapping for communicator (SSH, WinRM, etc) (host port 3105)[0m
-[1;32m2021-03-05T02:35:17-06:00: ==> virtualbox-iso: Executing custom VBoxManage commands...[0m
-[0;32m2021-03-05T02:35:17-06:00:     virtualbox-iso: Executing: modifyvm packer-kali-2021 --memory 4096[0m
-[0;32m2021-03-05T02:35:17-06:00:     virtualbox-iso: Executing: modifyvm packer-kali-2021 --cpus 1[0m
-[1;32m2021-03-05T02:35:17-06:00: ==> virtualbox-iso: Starting the virtual machine...[0m
-[1;32m2021-03-05T02:35:18-06:00: ==> virtualbox-iso: Waiting 10s for boot...[0m
-[1;32m2021-03-05T02:35:28-06:00: ==> virtualbox-iso: Typing the boot command...[0m
-[1;32m2021-03-05T02:36:14-06:00: ==> virtualbox-iso: Using ssh communicator to connect: 127.0.0.1[0m
-[1;32m2021-03-05T02:36:14-06:00: ==> virtualbox-iso: Waiting for SSH to become available...[0m
-[1;32m2021-03-05T02:49:13-06:00: ==> virtualbox-iso: Connected to SSH![0m
-[1;32m2021-03-05T02:49:13-06:00: ==> virtualbox-iso: Uploading VirtualBox version info (6.1.12)[0m
-[1;32m2021-03-05T02:49:14-06:00: ==> virtualbox-iso: Uploading VirtualBox guest additions ISO...[0m
-[1;32m2021-03-05T02:49:14-06:00: ==> virtualbox-iso: Provisioning with shell script: scripts/virtualbox-guest-additions.sh[0m
-[1;31m2021-03-05T02:49:14-06:00: ==> virtualbox-iso:[0m
-[1;31m2021-03-05T02:49:14-06:00: ==> virtualbox-iso: We trust you have received the usual lecture from the local System[0m
-[1;31m2021-03-05T02:49:14-06:00: ==> virtualbox-iso: Administrator. It usually boils down to these three things:[0m
-[1;31m2021-03-05T02:49:14-06:00: ==> virtualbox-iso:[0m
-[1;31m2021-03-05T02:49:14-06:00: ==> virtualbox-iso:     #1) Respect the privacy of others.[0m
-[1;31m2021-03-05T02:49:14-06:00: ==> virtualbox-iso:     #2) Think before you type.[0m
-[1;31m2021-03-05T02:49:14-06:00: ==> virtualbox-iso:     #3) With great power comes great responsibility.[0m
-[1;31m2021-03-05T02:49:14-06:00: ==> virtualbox-iso:[0m
-[0;32m2021-03-05T02:49:15-06:00:     virtualbox-iso: Hit:1 http://kali.download/kali kali-rolling InRelease[0m
-[0;32m2021-03-05T02:49:17-06:00:     virtualbox-iso: Reading package lists...[0m
-[0;32m2021-03-05T02:49:17-06:00:     virtualbox-iso: Reading package lists...[0m
-[0;32m2021-03-05T02:49:17-06:00:     virtualbox-iso: Building dependency tree...[0m
-[0;32m2021-03-05T02:49:17-06:00:     virtualbox-iso: Reading state information...[0m
-[0;32m2021-03-05T02:49:17-06:00:     virtualbox-iso: Calculating upgrade...[0m
-[0;32m2021-03-05T02:49:17-06:00:     virtualbox-iso: The following packages will be upgraded:[0m
-[0;32m2021-03-05T02:49:17-06:00:     virtualbox-iso:   apparmor apt apt-utils bash bsdextrautils bsdmainutils bsdutils calendar[0m
-[0;32m2021-03-05T02:49:17-06:00:     virtualbox-iso:   console-setup console-setup-linux eject fdisk keyboard-configuration[0m
-[0;32m2021-03-05T02:49:17-06:00:     virtualbox-iso:   libapparmor1 libapt-pkg6.0 libblkid1 libdns-export1110 libfdisk1 libgcrypt20[0m
-[0;32m2021-03-05T02:49:17-06:00:     virtualbox-iso:   libisc-export1105 libjson-c5 libmount1 libselinux1 libsmartcols1 libssl1.1[0m
-[0;32m2021-03-05T02:49:17-06:00:     virtualbox-iso:   libuuid1 libzstd1 mount nano ncal openssl rsyslog sysvinit-utils tar[0m
-[0;32m2021-03-05T02:49:17-06:00:     virtualbox-iso:   util-linux[0m
-[0;32m2021-03-05T02:49:18-06:00:     virtualbox-iso: 35 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.[0m
-[0;32m2021-03-05T02:49:18-06:00:     virtualbox-iso: Need to get 17.5 MB of archives.[0m
-[0;32m2021-03-05T02:49:18-06:00:     virtualbox-iso: After this operation, 115 kB disk space will be freed.[0m
-[0;32m2021-03-05T02:49:18-06:00:     virtualbox-iso: Get:1 http://kali.download/kali kali-rolling/main amd64 bash amd64 5.1-2+b1 [1,417 kB][0m
-[0;32m2021-03-05T02:49:18-06:00:     virtualbox-iso: Get:2 http://kali.download/kali kali-rolling/main amd64 bsdutils amd64 1:2.36.1-7 [148 kB][0m
-[0;32m2021-03-05T02:49:18-06:00:     virtualbox-iso: Get:3 http://kali.download/kali kali-rolling/main amd64 tar amd64 1.34+dfsg-1 [847 kB][0m
-[0;32m2021-03-05T02:49:18-06:00:     virtualbox-iso: Get:4 http://kali.download/kali kali-rolling/main amd64 libblkid1 amd64 2.36.1-7 [193 kB][0m
-[0;32m2021-03-05T02:49:18-06:00:     virtualbox-iso: Get:5 http://kali.download/kali kali-rolling/main amd64 libuuid1 amd64 2.36.1-7 [83.6 kB][0m
-[0;32m2021-03-05T02:49:18-06:00:     virtualbox-iso: Get:6 http://kali.download/kali kali-rolling/main amd64 libfdisk1 amd64 2.36.1-7 [237 kB][0m
-[0;32m2021-03-05T02:49:19-06:00:     virtualbox-iso: Get:7 http://kali.download/kali kali-rolling/main amd64 libselinux1 amd64 3.1-3 [88.1 kB][0m
-[0;32m2021-03-05T02:49:19-06:00:     virtualbox-iso: Get:8 http://kali.download/kali kali-rolling/main amd64 libmount1 amd64 2.36.1-7 [211 kB][0m
-[0;32m2021-03-05T02:49:19-06:00:     virtualbox-iso: Get:9 http://kali.download/kali kali-rolling/main amd64 libsmartcols1 amd64 2.36.1-7 [157 kB][0m
-[0;32m2021-03-05T02:49:19-06:00:     virtualbox-iso: Get:10 http://kali.download/kali kali-rolling/main amd64 fdisk amd64 2.36.1-7 [192 kB][0m
-[0;32m2021-03-05T02:49:19-06:00:     virtualbox-iso: Get:11 http://kali.download/kali kali-rolling/main amd64 util-linux amd64 2.36.1-7 [1,138 kB][0m
-[0;32m2021-03-05T02:49:19-06:00:     virtualbox-iso: Get:12 http://kali.download/kali kali-rolling/main amd64 libgcrypt20 amd64 1.8.7-3 [563 kB][0m
-[0;32m2021-03-05T02:49:19-06:00:     virtualbox-iso: Get:13 http://kali.download/kali kali-rolling/main amd64 libzstd1 amd64 1.4.8+dfsg-2 [321 kB][0m
-[0;32m2021-03-05T02:49:19-06:00:     virtualbox-iso: Get:14 http://kali.download/kali kali-rolling/main amd64 libapt-pkg6.0 amd64 2.2.0 [1,012 kB][0m
-[0;32m2021-03-05T02:49:19-06:00:     virtualbox-iso: Get:15 http://kali.download/kali kali-rolling/main amd64 apt amd64 2.2.0 [1,491 kB][0m
-[0;32m2021-03-05T02:49:20-06:00:     virtualbox-iso: Get:16 http://kali.download/kali kali-rolling/main amd64 apt-utils amd64 2.2.0 [438 kB][0m
-[0;32m2021-03-05T02:49:20-06:00:     virtualbox-iso: Get:17 http://kali.download/kali kali-rolling/main amd64 sysvinit-utils amd64 2.96-6 [25.2 kB][0m
-[0;32m2021-03-05T02:49:20-06:00:     virtualbox-iso: Get:18 http://kali.download/kali kali-rolling/main amd64 mount amd64 2.36.1-7 [186 kB][0m
-[0;32m2021-03-05T02:49:20-06:00:     virtualbox-iso: Get:19 http://kali.download/kali kali-rolling/main amd64 rsyslog amd64 8.2102.0-2 [703 kB][0m
-[0;32m2021-03-05T02:49:20-06:00:     virtualbox-iso: Get:20 http://kali.download/kali kali-rolling/main amd64 bsdextrautils amd64 2.36.1-7 [145 kB][0m
-[0;32m2021-03-05T02:49:20-06:00:     virtualbox-iso: Get:21 http://kali.download/kali kali-rolling/main amd64 console-setup-linux all 1.201 [1,872 kB][0m
-[0;32m2021-03-05T02:49:20-06:00:     virtualbox-iso: Get:22 http://kali.download/kali kali-rolling/main amd64 console-setup all 1.201 [99.9 kB][0m
-[0;32m2021-03-05T02:49:20-06:00:     virtualbox-iso: Get:23 http://kali.download/kali kali-rolling/main amd64 keyboard-configuration all 1.201 [423 kB][0m
-[0;32m2021-03-05T02:49:20-06:00:     virtualbox-iso: Get:24 http://kali.download/kali kali-rolling/main amd64 libssl1.1 amd64 1.1.1j-1 [1,554 kB][0m
-[0;32m2021-03-05T02:49:20-06:00:     virtualbox-iso: Get:25 http://kali.download/kali kali-rolling/main amd64 nano amd64 5.4-2 [657 kB][0m
-[0;32m2021-03-05T02:49:21-06:00:     virtualbox-iso: Get:26 http://kali.download/kali kali-rolling/main amd64 apparmor amd64 2.13.6-9 [640 kB][0m
-[0;32m2021-03-05T02:49:21-06:00:     virtualbox-iso: Get:27 http://kali.download/kali kali-rolling/main amd64 ncal amd64 12.1.7+nmu2 [30.0 kB][0m
-[0;32m2021-03-05T02:49:21-06:00:     virtualbox-iso: Get:28 http://kali.download/kali kali-rolling/main amd64 calendar amd64 12.1.7+nmu2 [132 kB][0m
-[0;32m2021-03-05T02:49:21-06:00:     virtualbox-iso: Get:29 http://kali.download/kali kali-rolling/main amd64 bsdmainutils all 12.1.7+nmu2 [16.3 kB][0m
-[0;32m2021-03-05T02:49:21-06:00:     virtualbox-iso: Get:30 http://kali.download/kali kali-rolling/main amd64 eject amd64 2.36.1-7 [102 kB][0m
-[0;32m2021-03-05T02:49:21-06:00:     virtualbox-iso: Get:31 http://kali.download/kali kali-rolling/main amd64 libapparmor1 amd64 2.13.6-9 [99.3 kB][0m
-[0;32m2021-03-05T02:49:21-06:00:     virtualbox-iso: Get:32 http://kali.download/kali kali-rolling/main amd64 libisc-export1105 amd64 1:9.11.19+dfsg-2 [397 kB][0m
-[0;32m2021-03-05T02:49:21-06:00:     virtualbox-iso: Get:33 http://kali.download/kali kali-rolling/main amd64 libdns-export1110 amd64 1:9.11.19+dfsg-2 [987 kB][0m
-[0;32m2021-03-05T02:49:21-06:00:     virtualbox-iso: Get:34 http://kali.download/kali kali-rolling/main amd64 libjson-c5 amd64 0.15-2 [42.8 kB][0m
-[0;32m2021-03-05T02:49:21-06:00:     virtualbox-iso: Get:35 http://kali.download/kali kali-rolling/main amd64 openssl amd64 1.1.1j-1 [850 kB][0m
-[0;32m2021-03-05T02:49:23-06:00:     virtualbox-iso: apt-listchanges: Reading changelogs...[0m
-[0;32m2021-03-05T02:49:23-06:00:     virtualbox-iso: Preconfiguring packages ...[0m
-[0;32m2021-03-05T02:49:23-06:00:     virtualbox-iso: Fetched 17.5 MB in 4s (4,304 kB/s)[0m
-[0;32m2021-03-05T02:49:24-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)[0m
-[0;32m2021-03-05T02:49:24-06:00:     virtualbox-iso: Preparing to unpack .../bash_5.1-2+b1_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:24-06:00:     virtualbox-iso: Unpacking bash (5.1-2+b1) over (5.1-2) ...[0m
-[0;32m2021-03-05T02:49:24-06:00:     virtualbox-iso: Setting up bash (5.1-2+b1) ...[0m
-[0;32m2021-03-05T02:49:24-06:00:     virtualbox-iso: update-alternatives: using /usr/share/man/man7/bash-builtins.7.gz to provide /usr/share/man/man7/builtins.7.gz (builtins.7.gz) in auto mode[0m
-[0;32m2021-03-05T02:49:25-06:00:     virtualbox-iso: (Reading database ... 293093 files and directories currently installed.)[0m
-[0;32m2021-03-05T02:49:25-06:00:     virtualbox-iso: Preparing to unpack .../bsdutils_1%3a2.36.1-7_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:25-06:00:     virtualbox-iso: Unpacking bsdutils (1:2.36.1-7) over (1:2.36.1-6) ...[0m
-[0;32m2021-03-05T02:49:25-06:00:     virtualbox-iso: Setting up bsdutils (1:2.36.1-7) ...[0m
-[0;32m2021-03-05T02:49:25-06:00:     virtualbox-iso: (Reading database ... 293093 files and directories currently installed.)[0m
-[0;32m2021-03-05T02:49:25-06:00:     virtualbox-iso: Preparing to unpack .../tar_1.34+dfsg-1_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:25-06:00:     virtualbox-iso: Unpacking tar (1.34+dfsg-1) over (1.32+dfsg-1) ...[0m
-[0;32m2021-03-05T02:49:25-06:00:     virtualbox-iso: Setting up tar (1.34+dfsg-1) ...[0m
-[0;32m2021-03-05T02:49:25-06:00:     virtualbox-iso: (Reading database ... 293093 files and directories currently installed.)[0m
-[0;32m2021-03-05T02:49:25-06:00:     virtualbox-iso: Preparing to unpack .../libblkid1_2.36.1-7_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:25-06:00:     virtualbox-iso: Unpacking libblkid1:amd64 (2.36.1-7) over (2.36.1-6) ...[0m
-[0;32m2021-03-05T02:49:25-06:00:     virtualbox-iso: Setting up libblkid1:amd64 (2.36.1-7) ...[0m
-[0;32m2021-03-05T02:49:26-06:00:     virtualbox-iso: (Reading database ... 293093 files and directories currently installed.)[0m
-[0;32m2021-03-05T02:49:26-06:00:     virtualbox-iso: Preparing to unpack .../libuuid1_2.36.1-7_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:26-06:00:     virtualbox-iso: Unpacking libuuid1:amd64 (2.36.1-7) over (2.36.1-6) ...[0m
-[0;32m2021-03-05T02:49:26-06:00:     virtualbox-iso: Setting up libuuid1:amd64 (2.36.1-7) ...[0m
-[0;32m2021-03-05T02:49:26-06:00:     virtualbox-iso: (Reading database ... 293093 files and directories currently installed.)[0m
-[0;32m2021-03-05T02:49:26-06:00:     virtualbox-iso: Preparing to unpack .../libfdisk1_2.36.1-7_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:26-06:00:     virtualbox-iso: Unpacking libfdisk1:amd64 (2.36.1-7) over (2.36.1-6) ...[0m
-[0;32m2021-03-05T02:49:26-06:00:     virtualbox-iso: Preparing to unpack .../libselinux1_3.1-3_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:26-06:00:     virtualbox-iso: Unpacking libselinux1:amd64 (3.1-3) over (3.1-2+b2) ...[0m
-[0;32m2021-03-05T02:49:26-06:00:     virtualbox-iso: Setting up libselinux1:amd64 (3.1-3) ...[0m
-[0;32m2021-03-05T02:49:26-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)[0m
-[0;32m2021-03-05T02:49:26-06:00:     virtualbox-iso: Preparing to unpack .../libmount1_2.36.1-7_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:26-06:00:     virtualbox-iso: Unpacking libmount1:amd64 (2.36.1-7) over (2.36.1-6) ...[0m
-[0;32m2021-03-05T02:49:26-06:00:     virtualbox-iso: Setting up libmount1:amd64 (2.36.1-7) ...[0m
-[0;32m2021-03-05T02:49:26-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)[0m
-[0;32m2021-03-05T02:49:26-06:00:     virtualbox-iso: Preparing to unpack .../libsmartcols1_2.36.1-7_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:26-06:00:     virtualbox-iso: Unpacking libsmartcols1:amd64 (2.36.1-7) over (2.36.1-6) ...[0m
-[0;32m2021-03-05T02:49:27-06:00:     virtualbox-iso: Setting up libsmartcols1:amd64 (2.36.1-7) ...[0m
-[0;32m2021-03-05T02:49:27-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)[0m
-[0;32m2021-03-05T02:49:27-06:00:     virtualbox-iso: Preparing to unpack .../fdisk_2.36.1-7_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:27-06:00:     virtualbox-iso: Unpacking fdisk (2.36.1-7) over (2.36.1-6) ...[0m
-[0;32m2021-03-05T02:49:27-06:00:     virtualbox-iso: Preparing to unpack .../util-linux_2.36.1-7_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:27-06:00:     virtualbox-iso: Unpacking util-linux (2.36.1-7) over (2.36.1-6) ...[0m
-[0;32m2021-03-05T02:49:27-06:00:     virtualbox-iso: Setting up util-linux (2.36.1-7) ...[0m
-[0;32m2021-03-05T02:49:28-06:00:     virtualbox-iso: fstrim.service is a disabled or a static unit not running, not starting it.[0m
-[0;32m2021-03-05T02:49:28-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)[0m
-[0;32m2021-03-05T02:49:28-06:00:     virtualbox-iso: Preparing to unpack .../libgcrypt20_1.8.7-3_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:28-06:00:     virtualbox-iso: Unpacking libgcrypt20:amd64 (1.8.7-3) over (1.8.7-2) ...[0m
-[0;32m2021-03-05T02:49:28-06:00:     virtualbox-iso: Setting up libgcrypt20:amd64 (1.8.7-3) ...[0m
-[0;32m2021-03-05T02:49:28-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)[0m
-[0;32m2021-03-05T02:49:28-06:00:     virtualbox-iso: Preparing to unpack .../libzstd1_1.4.8+dfsg-2_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:28-06:00:     virtualbox-iso: Unpacking libzstd1:amd64 (1.4.8+dfsg-2) over (1.4.8+dfsg-1) ...[0m
-[0;32m2021-03-05T02:49:28-06:00:     virtualbox-iso: Setting up libzstd1:amd64 (1.4.8+dfsg-2) ...[0m
-[0;32m2021-03-05T02:49:29-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)[0m
-[0;32m2021-03-05T02:49:29-06:00:     virtualbox-iso: Preparing to unpack .../libapt-pkg6.0_2.2.0_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:29-06:00:     virtualbox-iso: Unpacking libapt-pkg6.0:amd64 (2.2.0) over (2.1.20) ...[0m
-[0;32m2021-03-05T02:49:29-06:00:     virtualbox-iso: Setting up libapt-pkg6.0:amd64 (2.2.0) ...[0m
-[0;32m2021-03-05T02:49:29-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)[0m
-[0;32m2021-03-05T02:49:29-06:00:     virtualbox-iso: Preparing to unpack .../archives/apt_2.2.0_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:29-06:00:     virtualbox-iso: Unpacking apt (2.2.0) over (2.1.20) ...[0m
-[0;32m2021-03-05T02:49:29-06:00:     virtualbox-iso: Setting up apt (2.2.0) ...[0m
-[0;32m2021-03-05T02:49:30-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)[0m
-[0;32m2021-03-05T02:49:30-06:00:     virtualbox-iso: Preparing to unpack .../apt-utils_2.2.0_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:30-06:00:     virtualbox-iso: Unpacking apt-utils (2.2.0) over (2.1.20) ...[0m
-[0;32m2021-03-05T02:49:30-06:00:     virtualbox-iso: Preparing to unpack .../sysvinit-utils_2.96-6_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:30-06:00:     virtualbox-iso: Unpacking sysvinit-utils (2.96-6) over (2.96-5) ...[0m
-[0;32m2021-03-05T02:49:30-06:00:     virtualbox-iso: Setting up sysvinit-utils (2.96-6) ...[0m
-[0;32m2021-03-05T02:49:30-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)[0m
-[0;32m2021-03-05T02:49:30-06:00:     virtualbox-iso: Preparing to unpack .../0-mount_2.36.1-7_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:30-06:00:     virtualbox-iso: Unpacking mount (2.36.1-7) over (2.36.1-6) ...[0m
-[0;32m2021-03-05T02:49:30-06:00:     virtualbox-iso: Preparing to unpack .../1-rsyslog_8.2102.0-2_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:30-06:00:     virtualbox-iso: Unpacking rsyslog (8.2102.0-2) over (8.2012.0-1) ...[0m
-[0;32m2021-03-05T02:49:30-06:00:     virtualbox-iso: Preparing to unpack .../2-bsdextrautils_2.36.1-7_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:30-06:00:     virtualbox-iso: Unpacking bsdextrautils (2.36.1-7) over (2.36.1-6) ...[0m
-[0;32m2021-03-05T02:49:31-06:00:     virtualbox-iso: Preparing to unpack .../3-console-setup-linux_1.201_all.deb ...[0m
-[0;32m2021-03-05T02:49:31-06:00:     virtualbox-iso: Unpacking console-setup-linux (1.201) over (1.200) ...[0m
-[0;32m2021-03-05T02:49:31-06:00:     virtualbox-iso: Preparing to unpack .../4-console-setup_1.201_all.deb ...[0m
-[0;32m2021-03-05T02:49:31-06:00:     virtualbox-iso: Unpacking console-setup (1.201) over (1.200) ...[0m
-[0;32m2021-03-05T02:49:31-06:00:     virtualbox-iso: Preparing to unpack .../5-keyboard-configuration_1.201_all.deb ...[0m
-[0;32m2021-03-05T02:49:31-06:00:     virtualbox-iso: Unpacking keyboard-configuration (1.201) over (1.200) ...[0m
-[0;32m2021-03-05T02:49:31-06:00:     virtualbox-iso: Preparing to unpack .../6-libssl1.1_1.1.1j-1_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:31-06:00:     virtualbox-iso: Unpacking libssl1.1:amd64 (1.1.1j-1) over (1.1.1i-3) ...[0m
-[0;32m2021-03-05T02:49:31-06:00:     virtualbox-iso: Setting up libssl1.1:amd64 (1.1.1j-1) ...[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: (Reading database ... 293092 files and directories currently installed.)[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: Preparing to unpack .../00-nano_5.4-2_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: Unpacking nano (5.4-2) over (5.4-1) ...[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: Preparing to unpack .../01-apparmor_2.13.6-9_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: Unpacking apparmor (2.13.6-9) over (2.13.6-7) ...[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: Preparing to unpack .../02-ncal_12.1.7+nmu2_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: Unpacking ncal (12.1.7+nmu2) over (12.1.7) ...[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: Preparing to unpack .../03-calendar_12.1.7+nmu2_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: Unpacking calendar (12.1.7+nmu2) over (12.1.7) ...[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: Preparing to unpack .../04-bsdmainutils_12.1.7+nmu2_all.deb ...[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: Unpacking bsdmainutils (12.1.7+nmu2) over (12.1.7) ...[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: Preparing to unpack .../05-eject_2.36.1-7_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: Unpacking eject (2.36.1-7) over (2.36.1-6) ...[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: Preparing to unpack .../06-libapparmor1_2.13.6-9_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: Unpacking libapparmor1:amd64 (2.13.6-9) over (2.13.6-7) ...[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: Preparing to unpack .../07-libisc-export1105_1%3a9.11.19+dfsg-2_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: Unpacking libisc-export1105:amd64 (1:9.11.19+dfsg-2) over (1:9.11.19+dfsg-1) ...[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: Preparing to unpack .../08-libdns-export1110_1%3a9.11.19+dfsg-2_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:32-06:00:     virtualbox-iso: Unpacking libdns-export1110 (1:9.11.19+dfsg-2) over (1:9.11.19+dfsg-1) ...[0m
-[0;32m2021-03-05T02:49:33-06:00:     virtualbox-iso: Preparing to unpack .../09-libjson-c5_0.15-2_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:33-06:00:     virtualbox-iso: Unpacking libjson-c5:amd64 (0.15-2) over (0.15-1) ...[0m
-[0;32m2021-03-05T02:49:33-06:00:     virtualbox-iso: Preparing to unpack .../10-openssl_1.1.1j-1_amd64.deb ...[0m
-[0;32m2021-03-05T02:49:33-06:00:     virtualbox-iso: Unpacking openssl (1.1.1j-1) over (1.1.1i-3) ...[0m
-[0;32m2021-03-05T02:49:33-06:00:     virtualbox-iso: Setting up libapparmor1:amd64 (2.13.6-9) ...[0m
-[0;32m2021-03-05T02:49:33-06:00:     virtualbox-iso: Setting up apt-utils (2.2.0) ...[0m
-[0;32m2021-03-05T02:49:33-06:00:     virtualbox-iso: Setting up bsdextrautils (2.36.1-7) ...[0m
-[0;32m2021-03-05T02:49:33-06:00:     virtualbox-iso: Setting up ncal (12.1.7+nmu2) ...[0m
-[0;32m2021-03-05T02:49:33-06:00:     virtualbox-iso: Setting up rsyslog (8.2102.0-2) ...[0m
-[0;32m2021-03-05T02:49:33-06:00:     virtualbox-iso: Installing new version of config file /etc/logrotate.d/rsyslog ...[0m
-[0;32m2021-03-05T02:49:33-06:00:     virtualbox-iso: Installing new version of config file /etc/rsyslog.conf ...[0m
-[0;32m2021-03-05T02:49:33-06:00:     virtualbox-iso: Setting up eject (2.36.1-7) ...[0m
-[0;32m2021-03-05T02:49:33-06:00:     virtualbox-iso: Setting up apparmor (2.13.6-9) ...[0m
-[0;32m2021-03-05T02:49:34-06:00:     virtualbox-iso: Reloading AppArmor profiles[0m
-[0;32m2021-03-05T02:49:34-06:00:     virtualbox-iso: Setting up libisc-export1105:amd64 (1:9.11.19+dfsg-2) ...[0m
-[0;32m2021-03-05T02:49:34-06:00:     virtualbox-iso: Setting up bsdmainutils (12.1.7+nmu2) ...[0m
-[0;32m2021-03-05T02:49:34-06:00:     virtualbox-iso: Setting up calendar (12.1.7+nmu2) ...[0m
-[0;32m2021-03-05T02:49:34-06:00:     virtualbox-iso: Setting up libfdisk1:amd64 (2.36.1-7) ...[0m
-[0;32m2021-03-05T02:49:34-06:00:     virtualbox-iso: Setting up nano (5.4-2) ...[0m
-[0;32m2021-03-05T02:49:34-06:00:     virtualbox-iso: Setting up mount (2.36.1-7) ...[0m
-[0;32m2021-03-05T02:49:34-06:00:     virtualbox-iso: Setting up keyboard-configuration (1.201) ...[0m
-[0;32m2021-03-05T02:49:35-06:00:     virtualbox-iso: Setting up openssl (1.1.1j-1) ...[0m
-[0;32m2021-03-05T02:49:35-06:00:     virtualbox-iso: Setting up libjson-c5:amd64 (0.15-2) ...[0m
-[0;32m2021-03-05T02:49:35-06:00:     virtualbox-iso: Setting up libdns-export1110 (1:9.11.19+dfsg-2) ...[0m
-[0;32m2021-03-05T02:49:35-06:00:     virtualbox-iso: Setting up fdisk (2.36.1-7) ...[0m
-[0;32m2021-03-05T02:49:35-06:00:     virtualbox-iso: Setting up console-setup-linux (1.201) ...[0m
-[0;32m2021-03-05T02:49:35-06:00:     virtualbox-iso: Setting up console-setup (1.201) ...[0m
-[0;32m2021-03-05T02:49:36-06:00:     virtualbox-iso: Processing triggers for libc-bin (2.31-9) ...[0m
-[0;32m2021-03-05T02:49:36-06:00:     virtualbox-iso: Processing triggers for man-db (2.9.4-2) ...[0m
-[0;32m2021-03-05T02:49:40-06:00:     virtualbox-iso: Processing triggers for mailcap (3.68) ...[0m
-[0;32m2021-03-05T02:49:40-06:00:     virtualbox-iso: Processing triggers for kali-menu (2021.1.4) ...[0m
-[0;32m2021-03-05T02:49:41-06:00:     virtualbox-iso: Reading package lists...[0m
-[0;32m2021-03-05T02:49:41-06:00:     virtualbox-iso: Building dependency tree...[0m
-[0;32m2021-03-05T02:49:41-06:00:     virtualbox-iso: Reading state information...[0m
-[0;32m2021-03-05T02:49:41-06:00:     virtualbox-iso: virtualbox-guest-x11 is already the newest version (6.1.18-dfsg-2).[0m
-[0;32m2021-03-05T02:49:41-06:00:     virtualbox-iso: 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.[0m
-[1;31m2021-03-05T02:49:41-06:00: ==> virtualbox-iso: [sudo] password for kali:[0m
-[1;32m2021-03-05T02:49:41-06:00: ==> virtualbox-iso: Provisioning with shell script: scripts/ansible.sh[0m
-[0;32m2021-03-05T02:49:42-06:00:     virtualbox-iso: Hit:1 http://kali.download/kali kali-rolling InRelease[0m
-[0;32m2021-03-05T02:49:43-06:00:     virtualbox-iso: Reading package lists...[0m
-[0;32m2021-03-05T02:49:43-06:00:     virtualbox-iso: Reading package lists...[0m
-[0;32m2021-03-05T02:49:44-06:00:     virtualbox-iso: Building dependency tree...[0m
-[0;32m2021-03-05T02:49:44-06:00:     virtualbox-iso: Reading state information...[0m
-[0;32m2021-03-05T02:49:44-06:00:     virtualbox-iso: python3-pip is already the newest version (20.1.1-2).[0m
-[0;32m2021-03-05T02:49:44-06:00:     virtualbox-iso: python3-pip set to manually installed.[0m
-[0;32m2021-03-05T02:49:44-06:00:     virtualbox-iso: 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.[0m
-[1;31m2021-03-05T02:49:47-06:00: ==> virtualbox-iso: [sudo] password for kali: WARNING: The directory '/home/kali/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.[0m
-[0;32m2021-03-05T02:49:48-06:00:     virtualbox-iso: Collecting ansible[0m
-[0;32m2021-03-05T02:49:49-06:00:     virtualbox-iso:   Downloading ansible-3.0.0.tar.gz (30.8 MB)[0m
-[0;32m2021-03-05T02:50:16-06:00:     virtualbox-iso: Collecting ansible-base<2.11,>=2.10.5[0m
-[0;32m2021-03-05T02:50:16-06:00:     virtualbox-iso:   Downloading ansible-base-2.10.6.tar.gz (5.7 MB)[0m
-[0;32m2021-03-05T02:50:19-06:00:     virtualbox-iso: Requirement already satisfied, skipping upgrade: PyYAML in /usr/lib/python3/dist-packages (from ansible-base<2.11,>=2.10.5->ansible) (5.3.1)[0m
-[0;32m2021-03-05T02:50:19-06:00:     virtualbox-iso: Requirement already satisfied, skipping upgrade: cryptography in /usr/lib/python3/dist-packages (from ansible-base<2.11,>=2.10.5->ansible) (3.3.2)[0m
-[0;32m2021-03-05T02:50:19-06:00:     virtualbox-iso: Requirement already satisfied, skipping upgrade: jinja2 in /usr/lib/python3/dist-packages (from ansible-base<2.11,>=2.10.5->ansible) (2.11.2)[0m
-[0;32m2021-03-05T02:50:19-06:00:     virtualbox-iso: Requirement already satisfied, skipping upgrade: packaging in /usr/lib/python3/dist-packages (from ansible-base<2.11,>=2.10.5->ansible) (20.9)[0m
-[0;32m2021-03-05T02:50:19-06:00:     virtualbox-iso: Building wheels for collected packages: ansible, ansible-base[0m
-[0;32m2021-03-05T02:50:19-06:00:     virtualbox-iso:   Building wheel for ansible (setup.py): started[0m
-[0;32m2021-03-05T02:51:04-06:00:     virtualbox-iso:   Building wheel for ansible (setup.py): finished with status 'done'[0m
-[0;32m2021-03-05T02:51:04-06:00:     virtualbox-iso:   Created wheel for ansible: filename=ansible-3.0.0-py3-none-any.whl size=51827969 sha256=8e635d8c3657c67877dfdded97a1f26b455fe5e6bef7809912c88fb32594c10a[0m
-[0;32m2021-03-05T02:51:04-06:00:     virtualbox-iso:   Stored in directory: /tmp/pip-ephem-wheel-cache-x_niv68x/wheels/74/f9/f8/dfd4eec11522b3db4d2d90dffc2a1d28695e9a341b85fc84a4[0m
-[0;32m2021-03-05T02:51:04-06:00:     virtualbox-iso:   Building wheel for ansible-base (setup.py): started[0m
-[0;32m2021-03-05T02:51:05-06:00:     virtualbox-iso:   Building wheel for ansible-base (setup.py): finished with status 'done'[0m
-[0;32m2021-03-05T02:51:05-06:00:     virtualbox-iso:   Created wheel for ansible-base: filename=ansible_base-2.10.6-py3-none-any.whl size=1871040 sha256=6367a8713e57e735890006795bc18da060f71bd1a1f2085587cee5a2666c241a[0m
-[0;32m2021-03-05T02:51:05-06:00:     virtualbox-iso:   Stored in directory: /tmp/pip-ephem-wheel-cache-x_niv68x/wheels/36/ed/65/f166048b84b3d1a9149b95bc0770d747d683cdb917c30817b1[0m
-[0;32m2021-03-05T02:51:05-06:00:     virtualbox-iso: Successfully built ansible ansible-base[0m
-[0;32m2021-03-05T02:51:06-06:00:     virtualbox-iso: Installing collected packages: ansible-base, ansible[0m
-[0;32m2021-03-05T02:51:25-06:00:     virtualbox-iso: Successfully installed ansible-3.0.0 ansible-base-2.10.6[0m
-[1;32m2021-03-05T02:51:26-06:00: ==> virtualbox-iso: Provisioning with shell script: scripts/setup.sh[0m
-[0;32m2021-03-05T02:51:27-06:00:     virtualbox-iso: Hit:1 http://kali.download/kali kali-rolling InRelease[0m
-[0;32m2021-03-05T02:51:28-06:00:     virtualbox-iso: Reading package lists...[0m
-[0;32m2021-03-05T02:51:28-06:00:     virtualbox-iso: Reading package lists...[0m
-[0;32m2021-03-05T02:51:29-06:00:     virtualbox-iso: Building dependency tree...[0m
-[0;32m2021-03-05T02:51:29-06:00:     virtualbox-iso: Reading state information...[0m
-[0;32m2021-03-05T02:51:29-06:00:     virtualbox-iso: haveged is already the newest version (1.9.14-1).[0m
-[0;32m2021-03-05T02:51:29-06:00:     virtualbox-iso: haveged set to manually installed.[0m
-[0;32m2021-03-05T02:51:29-06:00:     virtualbox-iso: 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.[0m
-[1;31m2021-03-05T02:51:29-06:00: ==> virtualbox-iso: [sudo] password for kali: Synchronizing state of haveged.service with SysV service script with /lib/systemd/systemd-sysv-install.[0m
-[1;31m2021-03-05T02:51:29-06:00: ==> virtualbox-iso: Executing: /lib/systemd/systemd-sysv-install enable haveged[0m
-[1;32m2021-03-05T02:51:30-06:00: ==> virtualbox-iso: Provisioning with Ansible...[0m
-[0;32m2021-03-05T02:51:30-06:00:     virtualbox-iso: Creating Ansible staging directory...[0m
-[0;32m2021-03-05T02:51:30-06:00:     virtualbox-iso: Creating directory: /tmp/packer-provisioner-ansible-local/6041ed3a-c872-c0bd-7542-1ec1eb718a9d[0m
-[0;32m2021-03-05T02:51:30-06:00:     virtualbox-iso: Uploading main Playbook file...[0m
-[0;32m2021-03-05T02:51:30-06:00:     virtualbox-iso: Uploading inventory file...[0m
-[0;32m2021-03-05T02:51:30-06:00:     virtualbox-iso: Executing Ansible: cd /tmp/packer-provisioner-ansible-local/6041ed3a-c872-c0bd-7542-1ec1eb718a9d && ANSIBLE_FORCE_COLOR=1 PYTHONUNBUFFERED=1 ansible-playbook /tmp/packer-provisioner-ansible-local/6041ed3a-c872-c0bd-7542-1ec1eb718a9d/ansible-bootstrap.yml --extra-vars "packer_build_name=virtualbox-iso packer_builder_type=virtualbox-iso packer_http_addr=10.0.2.2:8391 -o IdentitiesOnly=yes"  -c local -i /tmp/packer-provisioner-ansible-local/6041ed3a-c872-c0bd-7542-1ec1eb718a9d/packer-provisioner-ansible-local530391548[0m
-[0;32m2021-03-05T02:51:34-06:00:     virtualbox-iso:[0m
-[0;32m2021-03-05T02:51:34-06:00:     virtualbox-iso: PLAY [all] *********************************************************************[0m
-[0;32m2021-03-05T02:51:34-06:00:     virtualbox-iso:[0m
-[0;32m2021-03-05T02:51:34-06:00:     virtualbox-iso: TASK [Gathering Facts] *********************************************************[0m
-[1;31m2021-03-05T02:51:37-06:00: ==> virtualbox-iso: [1;35m[WARNING]: Unhandled error in Python interpreter discovery for host 127.0.0.1:[0m[0m
-[1;31m2021-03-05T02:51:37-06:00: ==> virtualbox-iso: [1;35m'<' not supported between instances of 'str' and 'int'[0m[0m
-[1;31m2021-03-05T02:51:40-06:00: ==> virtualbox-iso: [1;35m[WARNING]: Platform linux on host 127.0.0.1 is using the discovered Python[0m[0m
-[1;31m2021-03-05T02:51:40-06:00: ==> virtualbox-iso: [1;35minterpreter at /usr/bin/python, but future installation of another Python[0m[0m
-[1;31m2021-03-05T02:51:40-06:00: ==> virtualbox-iso: [1;35minterpreter could change the meaning of that path. See https://docs.ansible.com[0m[0m
-[1;31m2021-03-05T02:51:40-06:00: ==> virtualbox-iso: [1;35m/ansible/2.10/reference_appendices/interpreter_discovery.html for more[0m[0m
-[1;31m2021-03-05T02:51:40-06:00: ==> virtualbox-iso: [1;35minformation.[0m[0m
-[0;32m2021-03-05T02:51:40-06:00:     virtualbox-iso: [0;32mok: [127.0.0.1][0m[0m
-[0;32m2021-03-05T02:51:40-06:00:     virtualbox-iso:[0m
-[0;32m2021-03-05T02:51:40-06:00:     virtualbox-iso: TASK [Add vagrant insecure SSH key] ********************************************[0m
-[0;32m2021-03-05T02:51:44-06:00:     virtualbox-iso: [0;33mchanged: [127.0.0.1][0m[0m
-[0;32m2021-03-05T02:51:44-06:00:     virtualbox-iso:[0m
-[0;32m2021-03-05T02:51:44-06:00:     virtualbox-iso: PLAY RECAP *********************************************************************[0m
-[0;32m2021-03-05T02:51:44-06:00:     virtualbox-iso: [0;33m127.0.0.1[0m                  : [0;32mok=2   [0m [0;33mchanged=1   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0[0m
-[0;32m2021-03-05T02:51:44-06:00:     virtualbox-iso:[0m
-[1;32m2021-03-05T02:51:44-06:00: ==> virtualbox-iso: Provisioning with shell script: scripts/cleanup.sh[0m
-[0;32m2021-03-05T02:51:44-06:00:     virtualbox-iso: Reading package lists...[0m
-[0;32m2021-03-05T02:51:45-06:00:     virtualbox-iso: Building dependency tree...[0m
-[0;32m2021-03-05T02:51:45-06:00:     virtualbox-iso: Reading state information...[0m
-[0;32m2021-03-05T02:51:45-06:00:     virtualbox-iso: 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.[0m
-[0;32m2021-03-05T02:51:46-06:00:     virtualbox-iso: Hit:1 http://kali.download/kali kali-rolling InRelease[0m
-[0;32m2021-03-05T02:51:49-06:00:     virtualbox-iso: Reading package lists...[0m
-[0;32m2021-03-05T02:51:49-06:00:     virtualbox-iso: Zeroing out disk...[0m
-[1;31m2021-03-05T02:55:21-06:00: ==> virtualbox-iso: dd: error writing '/EMPTY': No space left on device[0m
-[1;31m2021-03-05T02:55:21-06:00: ==> virtualbox-iso: 69404+0 records in[0m
-[1;31m2021-03-05T02:55:21-06:00: ==> virtualbox-iso: 69403+0 records out[0m
-[1;31m2021-03-05T02:55:21-06:00: ==> virtualbox-iso: 72774897664 bytes (73 GB, 68 GiB) copied, 212.156 s, 343 MB/s[0m
-[0;32m2021-03-05T02:55:21-06:00:     virtualbox-iso: Removing zero'd out space...[0m
-[1;32m2021-03-05T02:55:22-06:00: ==> virtualbox-iso: Gracefully halting virtual machine...[0m
-[1;32m2021-03-05T02:55:27-06:00: ==> virtualbox-iso: Preparing to export machine...[0m
-[0;32m2021-03-05T02:55:27-06:00:     virtualbox-iso: Deleting forwarded port mapping for the communicator (SSH, WinRM, etc) (host port 3105)[0m
-[1;32m2021-03-05T02:55:27-06:00: ==> virtualbox-iso: Exporting virtual machine...[0m
-[0;32m2021-03-05T02:55:27-06:00:     virtualbox-iso: Executing: export packer-kali-2021 --output output-virtualbox-iso/packer-kali-2021.ovf[0m
-[1;32m2021-03-05T02:59:57-06:00: ==> virtualbox-iso: Cleaning up floppy disk...[0m
-[1;32m2021-03-05T02:59:57-06:00: ==> virtualbox-iso: Keeping virtual machine registered with VirtualBox host (keep_registered = true)[0m
-[1;32m2021-03-05T02:59:57-06:00: ==> virtualbox-iso: Running post-processor: vagrant[0m
-[1;32m2021-03-05T02:59:57-06:00: ==> virtualbox-iso (vagrant): Creating a dummy Vagrant box to ensure the host system can create one correctly[0m
-[1;32m2021-03-05T02:59:57-06:00: ==> virtualbox-iso (vagrant): Creating Vagrant box for 'virtualbox' provider[0m
-[0;32m2021-03-05T02:59:57-06:00:     virtualbox-iso (vagrant): Copying from artifact: output-virtualbox-iso/packer-kali-2021-disk001.vmdk[0m
-[0;32m2021-03-05T03:00:01-06:00:     virtualbox-iso (vagrant): Copying from artifact: output-virtualbox-iso/packer-kali-2021.ovf[0m
-[0;32m2021-03-05T03:00:01-06:00:     virtualbox-iso (vagrant): Copying from artifact: output-virtualbox-iso/packer-kali-2021.vdi[0m
-[0;32m2021-03-05T03:00:17-06:00:     virtualbox-iso (vagrant): Renaming the OVF to box.ovf...[0m
-[0;32m2021-03-05T03:00:17-06:00:     virtualbox-iso (vagrant): Compressing: Vagrantfile[0m
-[0;32m2021-03-05T03:00:17-06:00:     virtualbox-iso (vagrant): Compressing: box.ovf[0m
-[0;32m2021-03-05T03:00:17-06:00:     virtualbox-iso (vagrant): Compressing: metadata.json[0m
-[0;32m2021-03-05T03:00:17-06:00:     virtualbox-iso (vagrant): Compressing: packer-kali-2021-disk001.vmdk[0m
-[0;32m2021-03-05T03:00:21-06:00:     virtualbox-iso (vagrant): Compressing: packer-kali-2021.vdi[0m
-[1;32m2021-03-05T03:00:43-06:00: ==> virtualbox-iso: Running post-processor: manifest[0m
-[1;32m2021-03-05T03:00:43-06:00: ==> virtualbox-iso: Running post-processor: checksum[0m
-[1;32m2021-03-05T03:01:24-06:00: Build 'virtualbox-iso' finished after 26 minutes 18 seconds.[0m
-
-==> Wait completed after 26 minutes 18 seconds
+==> Wait completed after 29 minutes 621 milliseconds
 
 ==> Builds finished. The artifacts of successful builds are:
 --> virtualbox-iso: VM files in directory: output-virtualbox-iso

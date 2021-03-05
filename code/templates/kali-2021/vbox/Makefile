@@ -8,7 +8,7 @@
 
 PACKER = /usr/local/bin/packer
 PACKER_FILE = kali2021-vbox-iso.json
-PACKER_BUILD_OPTS = -timestamp-ui
+PACKER_BUILD_OPTS = -timestamp-ui -color=false
 
 .DEFAULT_GOAL := all
 
@@ -16,7 +16,7 @@ debug:
 	@echo "Building (** debug **) $(PACKER_FILE), opts: $(PACKER_BUILD_OPTS)"
 	$(PACKER) build $(PACKER_BUILD_OPTS) -debug $(PACKER_FILE)
 
-build: 
+build: clean 
 	@echo "Building $(PACKER_FILE), opts: $(PACKER_BUILD_OPTS)"
 	$(PACKER) build $(PACKER_BUILD_OPTS) $(PACKER_FILE)
 

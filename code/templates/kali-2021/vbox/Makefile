@@ -33,6 +33,8 @@ clean:
 	@echo "Cleaning..."
 	rm -fr vagrant/*.box
 	rm -fr output-virtualbox-iso
+	rm -fr packer-kali-2021.checksum
+	rm -fr packer-kali-2021.manifest
 
 distclean: clean
 	@echo "Making really clean..."

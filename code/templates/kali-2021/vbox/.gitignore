@@ -1,5 +1,6 @@
 packer_cache/*
 output-virtualbox-iso/*
-vagrant/*
+vagrant/*.box
 *manifest*
 *checksum*
+.vagrant/*

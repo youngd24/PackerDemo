@@ -8,12 +8,13 @@ This project provides Packer and Vagrant configuration and supporting scripts fo
 ](https://www.packer.io/docs/builders/virtualbox)
 
 
-# JSON Configuration File
+## JSON Configuration File
 
 
 There are more than 1 type of VirtualBox builders, this one uses an ISO as the input to build with. If the ISO isn't present in the loclal packer cache, it will be downloaded. If a checksum is specified for the iso, that will be validated as well.
 
 ```"type": "virtualbox-iso"```
+
 
 At the end of the buid the VirtualBox iso builder normally will not export the vbox image out to disk, set to false to keep the export. They're places is output-virtualbox-iso with a VDI configuration file and a VMDK disk.
 
@@ -129,26 +130,28 @@ Currently this produces VMs with the kali standard credentials of `kali` and `ka
 
 ## Requirements
 * Packer - [https://www.packer.io](https://www.packer.io)
-* Virtualization Software
-    * Virtualbox and the extension pack - [https://www.virtualbox.org](https://www.virtualbox.org)
-    * VMware Workstation
-* (optionally) Vagrant - [https://www.vagrantup.com](https://www.vagrantup.com)
-    * If using VMware, you'll also need a license to the Vagrant VMware plugin.
+* Virtualbox and the extension pack - [https://www.virtualbox.org](https://www.virtualbox.org)
+* Vagrant - [https://www.vagrantup.com](https://www.vagrantup.com)
+
 
 ## Usage
-To build the virtual machine for both VMware and VirtualBox, run the following command:
-```packer build packer.json```
+To build the virtual machine for VirtualBox, run the following command:
 
-To only build one or the other
-```packer build -only=vmware-iso packer.json```
-```packer build -only=virtualbox-iso packer.json```
+```make vbox```
+
+To build the virtual machine for vSphere, run the following command:
+
+```make vsphere```
+
+To build both, run:
+
+```make```
+
 
 ## Vagrant
 
-To build the Vagrant box, specify the `packer-vagrant.json` config file instead.
-
 To add the resulting Vagrant box to your local Vagrant installation, use the following command:
-```vagrant box add --name kalirolling builds/virtualbox-kali.box```
+```vagrant box add --name kali2021 vagrant/virtualbox-kali.box```
 The `--force` flag can be used to overwrite a previously built box with the same name.
 
 To instantiate a VM with Vagrant using the box you've just added, change into a directory containing an appropriate `Vagrantfile` and issue the `vagrant up` command. An example `Vagrantfile` is provided as part of this project.

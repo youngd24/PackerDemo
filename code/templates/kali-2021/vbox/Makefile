@@ -38,4 +38,5 @@ clean:
 
 distclean: clean
 	@echo "Making really clean..."
-	rm -fr packer_cache
+	rm -fr packer_cache/
+	rm -fr .vagrant/

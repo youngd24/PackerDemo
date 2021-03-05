@@ -1,4 +1,4 @@
-# iManage SecOps Packer Build
+# Packer Build
 
 ## CentOS 7 - VirtualBox Edition
 

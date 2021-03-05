@@ -1,4 +1,4 @@
-# iManage SecOps Packer Build
+# Packer Build
 
 ## CentOS 7 - vSphere Edition
 
@@ -46,7 +46,7 @@ Packer uses a json based configuration, the file used for this particular build 
 
 ### Networking
 
-All of the iManage production data centers do NOT have DHCP services available so any virtual machine started must have a static IP if it needs networking access. This is normally fine for most provisioning situations however in the case of Packer the machine needs to be accessible via SSH (or WinRM for Windows) in order for it to be able to perform the post-build customization process.
+All production data centers do NOT have DHCP services available so any virtual machine started must have a static IP if it needs networking access. This is normally fine for most provisioning situations however in the case of Packer the machine needs to be accessible via SSH (or WinRM for Windows) in order for it to be able to perform the post-build customization process.
 
 To get around this the vSphere Kickstart configuration uses a static IP that's been reserved in IPAM for this build process. Once Packer has completed the last script it runs is one to clear out that static IP configuration.
 

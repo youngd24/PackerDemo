@@ -1,4 +1,4 @@
-# iManage SecOps Packer Build
+# Packer Build
 
 ## Shared Components
 

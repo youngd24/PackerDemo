@@ -1,2 +1,3 @@
 packer_cache/*
-output-virtualbox-iso/8
+output-virtualbox-iso/*
+builds/*

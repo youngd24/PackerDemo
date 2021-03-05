@@ -2,10 +2,7 @@
 
 ## Introduction
 
-This project provides Packer and Vagrant configuration and supporting scripts for Kali Linux, to allow the creation of both standard Kali VMs and Vagrant boxes. Both VMware and Virtualbox are supported.
-
-[https://www.packer.io/docs/builders/virtualbox
-](https://www.packer.io/docs/builders/virtualbox)
+This is the VirtualBox & Vagrant box build for Kali 2021
 
 
 ## JSON Configuration File
@@ -137,21 +134,17 @@ Currently this produces VMs with the kali standard credentials of `kali` and `ka
 ## Usage
 To build the virtual machine for VirtualBox, run the following command:
 
-```make vbox```
-
-To build the virtual machine for vSphere, run the following command:
-
-```make vsphere```
-
-To build both, run:
-
 ```make```
+
+This runs the validate and build Packer targets.
 
 
 ## Vagrant
 
 To add the resulting Vagrant box to your local Vagrant installation, use the following command:
+
 ```vagrant box add --name kali2021 vagrant/virtualbox-kali.box```
+
 The `--force` flag can be used to overwrite a previously built box with the same name.
 
 To instantiate a VM with Vagrant using the box you've just added, change into a directory containing an appropriate `Vagrantfile` and issue the `vagrant up` command. An example `Vagrantfile` is provided as part of this project.

@@ -31,11 +31,9 @@ all: validate build
 
 clean:
 	@echo "Cleaning..."
-	rm -fr packer_cache
-	rm -fr builds
 	rm -fr vagrant/*.box
 	rm -fr output-virtualbox-iso
 
 distclean: clean
 	@echo "Making really clean..."
-	rm -fr CentOS*.iso
+	rm -fr packer_cache

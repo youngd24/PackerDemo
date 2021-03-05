@@ -114,7 +114,7 @@
       "type": "shell"
     },
     {
-      "playbook_file": "scripts/vagrant-setup.yml",
+      "playbook_file": "scripts/ansible-bootstrap.yml",
       "type": "ansible-local"
     },
     {

@@ -79,18 +79,17 @@
     {
       "type": "vagrant",
       "keep_input_artifact": true,
-      "compression_level": "6",
       "output": "builds/{{.Provider}}-kali-2021.1.box"
     },
     {
       "type": "manifest",
-      "output": "manifest.packer-kali-2021.1",
+      "output": "packer-kali-2021.manifest",
       "strip_path": true
     },
     {
       "type": "checksum",
-      "checksum_types": "md5,sha256",
-      "output": ".checksum.packer-kali-2021.1_{{.ChecksumType}}"
+      "checksum_types": "sha256",
+      "output": "packer-kali-2021.checksum"
     }
   ],
 

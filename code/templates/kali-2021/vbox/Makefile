@@ -33,6 +33,7 @@ clean:
 	@echo "Cleaning..."
 	rm -fr packer_cache
 	rm -fr builds
+	rm -fr vagrant
 	rm -fr output-virtualbox-iso
 
 distclean: clean

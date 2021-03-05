@@ -1,7 +1,7 @@
 {
   "variables": {
     "version":        "1.5",
-    "vcenter_server": "vcenter.dc6.imanage.work",
+    "vcenter_server": "",
     "vcenter_user":   "",
     "vcenter_pass":   "",
     "ssh_username":   "sysadmin",
@@ -35,16 +35,16 @@
       "type": "vsphere-iso",
 
       "vcenter_server":        "{{user `vcenter_server`}}",
-      "username":              "svc_secauto@ch3.imanage.work",
-      "password":              "geb6a2BeF3RBy4wyrB",
+      "username":              "",
+      "password":              "",
       "insecure_connection":   "true",
       "vm_name":               "centos7-x86_64-stage1",
       "notes":                 "SecOps CentOS 7 Packer build",
-      "datacenter":            "DC6",
-      "cluster":               "WORK-SHARE",
-      "datastore":             "dc6-k2-ppd-splunk01",
-      "folder":                "Services/Security/Base_Images",
-      "network":               "VM-Mgmt",
+      "datacenter":            "",
+      "cluster":               "",
+      "datastore":             "",
+      "folder":                "",
+      "network":               "",
       "guest_os_type":         "centos7_64Guest",
 
       "ssh_username":          "{{user `ssh_username`}}",

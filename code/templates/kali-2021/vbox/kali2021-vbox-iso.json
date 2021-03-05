@@ -2,6 +2,7 @@
   
   "builders": [
     {
+      
       "type": "virtualbox-iso",
 
       "keep_registered": "true",
@@ -51,9 +52,9 @@
       ],
       
       "ssh_password": "kali",
-      "ssh_port": 22,
-      "ssh_timeout": "10000s",
       "ssh_username": "kali",
+      "ssh_timeout": "10000s",
+      "ssh_port": 22,
       
       "vboxmanage": [
         [
@@ -84,7 +85,7 @@
     {
       "type": "manifest",
       "output": "packer-kali-2021.manifest",
-      "strip_path": true
+      "strip_path": false
     },
     {
       "type": "checksum",

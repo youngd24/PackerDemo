@@ -97,15 +97,17 @@
   "provisioners": [
     {
       "execute_command": "echo 'kali' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "only": [
-        "virtualbox-iso"
-      ],
+      "script": "scripts/update-apt.sh",
+      "type": "shell"
+    },
+    {
+      "execute_command": "echo 'kali' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "script": "scripts/virtualbox-guest-additions.sh",
       "type": "shell"
     },
     {
       "execute_command": "echo 'kali' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "script": "scripts/ansible.sh",
+      "script": "scripts/install-ansible.sh",
       "type": "shell"
     },
     {

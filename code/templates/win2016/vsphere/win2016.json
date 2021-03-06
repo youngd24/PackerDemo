@@ -1,0 +1,60 @@
+{
+  "builders": [
+    {
+      "CPUs": 2,
+      "RAM": 8048,
+      "RAM_reserve_all": true,
+      "cluster": "",
+      "datacenter": "",
+      "datastore": "",
+      "disk_controller_type": "pvscsi",
+      "floppy_files": [
+        "./answer_files/2016/Autounattend.xml",
+        "./scripts/disable-network-discovery.cmd",
+        "./sccripts/disable-winrm.ps1",
+        "./scripts/enable-rdp.cmd",
+        "./scripts/enable-winrm.ps1",
+        "./scripts/install-vm-tools.cmd",
+        "./scripts/set-temp.ps1"
+      ],
+      "guest_os_type": "windows9Server64Guest",
+      "insecure_connection": "true",
+      "iso_paths": [
+        "{{user `os_iso_path`}}",
+        "[datastore01] /vmimages/tools-isoimages/windows.iso"
+      ],
+      "network_adapters": [
+        {
+          "network": "",
+          "network_card": "vmxnet3"
+        }
+      ],
+      "notes": "",
+      "password": "",
+      "ssh_password": "",
+      "ssh_username": "",
+      "storage": [
+        {
+          "disk_size": 62768,
+          "disk_thin_provisioned": true
+        }
+      ],
+      "type": "vsphere-iso",
+      "username": "k",
+      "vcenter_server": "",
+      "vm_name": "Packer-Win2016"
+    }
+  ],
+  "provisioners": [
+    {
+      "inline": [
+        "ipconfig"
+      ],
+      "type": "windows-shell"
+    }
+  ],
+  "variables": {
+    "os_iso_path": "[datastore01] ISOs/14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.ISO"
+  }
+}
+

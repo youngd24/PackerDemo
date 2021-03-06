@@ -86,14 +86,13 @@
   [
     {
       "type": "vagrant",
-      "keep_input_artifact": true, 
-      "compression_level": "6",
-      "output": "vagrant/centos7-x86_64-stage1.box"
+      "output": "vagrant/centos7-x86_64-stage1.box",
+      "keep_input_artifact": true
     },
     {
       "type": "manifest",
       "output": "centos7-x86_64-stage1.manifest",
-      "strip_path": true
+      "strip_path": false
     },
     {
       "type": "checksum",

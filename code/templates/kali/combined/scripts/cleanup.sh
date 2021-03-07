@@ -1,3 +1,12 @@
+#!/bin/bash
+##############################################################################
+#
+# cleanup.sh
+#
+# Clean the machine up for completion
+#
+##############################################################################
+
 # Apt cleanup.
 apt-get autoremove
 apt-get update

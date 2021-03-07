@@ -2,6 +2,7 @@
   "builders": [
     {
       "boot_wait": "2m",
+      "communicator": "winrm",
       "disk_size": 61440,
       "floppy_files": [
         "{{user `autounattend`}}",
@@ -14,26 +15,28 @@
       "iso_checksum": "{{user `iso_checksum_type`}}:{{user `iso_checksum`}}",
       "iso_url": "{{user `iso_url`}}",
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
-      "ssh_password": "vagrant",
-      "ssh_timeout": "6h",
-      "ssh_username": "vagrant",
+      "winrm_password": "vagrant",
+      "winrm_timeout": "10m",
+      "winrm_username": "vagrant",
       "type": "virtualbox-iso",
+      "vm_name": "packer-win2016",
       "vboxmanage": [
         [
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "2048"
+          "1024"
         ],
         [
           "modifyvm",
           "{{.Name}}",
           "--cpus",
-          "2"
+          "1"
         ]
       ]
     }
   ],
+
   "post-processors": [
     {
       "keep_input_artifact": true,
@@ -42,6 +45,7 @@
       "vagrantfile_template": "vagrant/Vagrantfile"
     }
   ],
+
   "provisioners": [
     {
       "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
@@ -57,6 +61,7 @@
       "type": "shell"
     }
   ],
+
   "variables": {
     "autounattend": "./answer_files/2016/Autounattend.xml",
     "iso_checksum": "70721288bbcdfe3239d8f8c0fae55f1f",

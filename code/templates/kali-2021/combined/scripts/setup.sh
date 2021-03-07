@@ -16,6 +16,5 @@ echo 'APT::Periodic::Enable "0";' >> /etc/apt/apt.conf.d/10periodic
 
 # Fix for login issues related to lack of randomness
 # https://bugs.kali.org/view.php?id=4994
-#apt-get update
 sudo apt-get install -y haveged
 sudo systemctl enable haveged

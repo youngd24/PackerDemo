@@ -266,46 +266,67 @@ build {
   # PROVISIONERS
   ##############
 
+  #####################
   # Common provisioners
+  #####################
+
+  # Update the machine first thing
   provisioner "shell" {
     execute_command = "echo 'kali' | {{ .Vars }} sudo -S -E bash '{{ .Path }}'"
     script          = "scripts/update-apt.sh"
   }
 
+  # Install Ansible
   provisioner "shell" {
     execute_command = "echo 'kali' | {{ .Vars }} sudo -S -E bash '{{ .Path }}'"
     script          = "scripts/install-ansible.sh"
   }
 
+  # Some final setup of the machine
   provisioner "shell" {
     execute_command = "echo 'kali' | {{ .Vars }} sudo -S -E bash '{{ .Path }}'"
     script          = "scripts/setup.sh"
   }
 
+  # Clears the network config for a fresh boot
   provisioner "shell" {
     execute_command = "echo 'kali' | {{ .Vars }} sudo -S -E bash '{{ .Path }}'"
     script          = "scripts/clear-network.sh"
   }
 
+  # kick to Ansible for configuration on first-boot
   provisioner "ansible-local" {
     playbook_file = "scripts/ansible-bootstrap.yml"
   }
 
+  ################################
   ### VirtualBox only provisioners
+  ################################
+
+  # Install the vbox guest additions
   provisioner "shell" {
     execute_command = "echo 'kali' | {{ .Vars }} sudo -S -E bash '{{ .Path }}'"
     only            = ["virtualbox-iso"]
     script          = "scripts/virtualbox-guest-additions.sh"
   }
 
+  #############################
   ### vSphere only provisioners
+  #############################
+
+  # Install vmware tools (open-vm-tools)
   provisioner "shell" {
     execute_command = "echo 'kali' | {{ .Vars }} sudo -S -E bash '{{ .Path }}'"
     only            = ["vmware-iso"]
     script          = "scripts/vmware-tools.sh"
   }
 
+  ####################
   ### LAST PROVISIONER
+  ####################
+  
+  # The very last provisioner
+  # This should leave the image in a usable state
   provisioner "shell" {
     execute_command = "echo 'kali' | {{ .Vars }} sudo -S -E bash '{{ .Path }}'"
     script          = "scripts/cleanup.sh"

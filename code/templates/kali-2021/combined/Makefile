@@ -16,9 +16,16 @@ debug:
 	@echo "Building (** debug **) $(PACKER_FILE), opts: $(PACKER_BUILD_OPTS)"
 	$(PACKER) build $(PACKER_BUILD_OPTS) -debug $(PACKER_FILE)
 
-build: clean 
-	@echo "Building $(PACKER_FILE), opts: $(PACKER_BUILD_OPTS)"
-	$(PACKER) build $(PACKER_BUILD_OPTS) $(PACKER_FILE)
+build-vmware:
+	@echo "Building vmware, opts: $(PACKER_BUILD_OPTS)"
+	$(PACKER) build -only=vmware-iso $(PACKER_BUILD_OPTS) $(PACKER_FILE)
+
+build-virtualbox:
+	@echo "Building vmware, opts: $(PACKER_BUILD_OPTS)"
+	$(PACKER) build -only=virtualbox-iso $(PACKER_BUILD_OPTS) $(PACKER_FILE)
+
+build: clean build-virtualbox build-vmware
+	@echo "Build all"
 
 validate:
 	@echo "Validating $(PACKER_FILE)"
@@ -33,10 +40,10 @@ clean:
 	@echo "Cleaning..."
 	rm -fr vagrant/*.box
 	rm -fr output-virtualbox-iso
-	rm -fr packer-kali-2021.checksum
-	rm -fr packer-kali-2021.manifest
+	rm -fr *.checksum
+	rm -fr *.manifest
 
 distclean: clean
-	@echo "Making really clean..."
+	@echo "Making really (dist) clean..."
 	rm -fr packer_cache/
 	rm -fr .vagrant/

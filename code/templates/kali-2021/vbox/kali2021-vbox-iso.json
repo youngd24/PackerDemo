@@ -1,5 +1,11 @@
 {
-  
+
+  "variables": {
+    "password": "",
+    "username": "",
+    "http_directory": "http" 
+  },
+
   "builders": [
     {
       
@@ -124,10 +130,6 @@
       "script": "scripts/cleanup.sh",
       "type": "shell"
     }
-  ],
-  "variables": {
-    "password": "",
-    "username": ""
-  }
+  ]
 }
 

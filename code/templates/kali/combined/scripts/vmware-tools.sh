@@ -7,5 +7,6 @@
 #
 ###############################################################################
 
+echo "SCRIPT: vmware-tools.sh"
 
 sudo apt-get install -y open-vm-tools

@@ -7,6 +7,8 @@
 #
 ##############################################################################
 
+echo "SCRIPT: cleanup.sh"
+
 # Apt cleanup.
 apt-get autoremove
 apt-get update

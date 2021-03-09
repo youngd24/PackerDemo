@@ -7,6 +7,8 @@
 #
 ###############################################################################
 
+echo "SCRIPT: update-apt.sh"
+
 # Update the apt cache
 sudo apt-get update
 

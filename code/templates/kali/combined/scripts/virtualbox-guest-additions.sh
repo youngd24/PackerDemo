@@ -7,6 +7,8 @@
 #
 ###############################################################################
 
+echo "SCRIPT: virtualbox-guest-additions.sh"
+
 sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::="--force-confnew" dist-upgrade -yq
 

@@ -7,5 +7,7 @@
 #
 ###############################################################################
 
-sudo rm -rf /etc/netplan/*.yaml
-sudo netplan apply
+echo "SCRIPT: clear-network.sh"
+
+#sudo rm -rf /etc/netplan/*.yaml
+#sudo netplan apply

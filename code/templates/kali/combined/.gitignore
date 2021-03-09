@@ -1,6 +1,7 @@
 packer_cache/*
-output-virtualbox-iso/*
+output-gold_image/*
 vagrant/*.box
 .vagrant/*
+*.log
 *.manifest
 *.checksum

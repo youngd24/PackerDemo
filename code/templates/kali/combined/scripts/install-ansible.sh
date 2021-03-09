@@ -7,6 +7,8 @@
 #
 ###############################################################################
 
+echo "SCRIPT: ansible.sh"
+
 # Install pip3
 sudo apt-get -y install python3-pip
 

@@ -201,7 +201,7 @@ source "virtualbox-iso" "gold_image" {
                             "<esc><wait>",
                             "<enter><wait>",
                             "/install/vmlinuz<wait>",
-                            " initrd=/install/initrd.gz<",
+                            " initrd=/install/initrd.gz",
                             " auto-install/enable=true",
                             " debconf/priority=critical",
                             " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg<wait>",

@@ -51,6 +51,7 @@ inspect:
 clean:
 	@echo "Cleaning..."
 	rm -fr vagrant/*.box
+	find . -type d -name .vagrant | xargs rm -fr
 	rm -f *.log
 	rm -fr output-gold_image
 	rm -fr *.checksum
@@ -60,7 +61,6 @@ clean:
 distclean: clean
 	@echo "Making really (dist) clean..."
 	rm -fr packer_cache/
-	rm -fr .vagrant/
 
 # default build target
 all: validate build

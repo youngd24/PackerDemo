@@ -84,10 +84,10 @@ variable "vm_vram" {
   default = "1024"
 }
 
-# vm disk size, again, use the minimum needed
+# vm disk size, again, use the minimum needed (in MB)
 variable "vm_disksize" {
   type    = string
-  default = "81920"
+  default = "25000"
 }
 
 # this provision the vm disk?
@@ -201,7 +201,7 @@ source "virtualbox-iso" "gold_image" {
                             "<esc><wait>",
                             "<enter><wait>",
                             "/install/vmlinuz<wait>",
-                            " initrd=/install/initrd.gz",
+                            " initrd=/install/initrd.gz<",
                             " auto-install/enable=true",
                             " debconf/priority=critical",
                             " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg<wait>",

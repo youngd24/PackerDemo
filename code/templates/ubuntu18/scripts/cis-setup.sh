@@ -9,7 +9,16 @@
 
 echo "SCRIPT: cis-setup.sh"
 
-#$SRC="/tmp/cis_ubuntu_18.04/"
-#$DEST="/opt/cis"
+CIS_VER="cis_ubuntu_18.04"
 
-sudo cp -R /tmp/cis_ubuntu_18.04 /opt
+SRC="/tmp/$CIS_VER"
+DEST="/opt"
+CISDIR="/opt/$CIS_VER"
+
+# Copy the CIS source to /opt
+echo "Copying CIS source files ($SRC to $DEST)"
+sudo cp -R $SRC $DEST
+
+# symlink the current CIS version to the version deployed
+echo "Setting up CIS version ($DEST to $CISDIR)"
+sudo ln -s $CISDIR "$DEST/cis"

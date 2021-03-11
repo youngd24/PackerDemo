@@ -1,6 +1,6 @@
 ---
 # defaults file for Ubuntu1804-CIS
-ubuntu1804cis_skip_for_travis: false
+ubuntu1804cis_skip_for_travis: true
 
 ubuntu1804cis_notauto: false
 ubuntu1804cis_section1: true
@@ -332,10 +332,11 @@ ubuntu1804cis_set_boot_pass: false
 ubuntu1804cis_is_router: false
 
 # IPv6 required
-ubuntu1804cis_ipv6_required: true
+ubuntu1804cis_ipv6_required: false
 
 # AIDE
-ubuntu1804cis_config_aide: true
+ubuntu1804cis_config_aide: false
+
 # AIDE cron settings
 ubuntu1804cis_aide_cron:
   cron_user: root
@@ -353,7 +354,7 @@ ubuntu1804cis_gui: false
 # Set to 'true' if X Windows is needed in your environment
 ubuntu1804cis_xwindows_required: false
 
-ubuntu1804cis_openldap_clients_required: false
+ubuntu1804cis_openldap_clients_required: true
 ubuntu1804cis_telnet_required: false
 ubuntu1804cis_talk_required: false
 ubuntu1804cis_rsh_required: false
@@ -448,6 +449,7 @@ ubuntu1804cis_pass:
 ubuntu1804cis_password_change_date_in_future_action: expire # lock
 
 ubuntu1804cis_shell_timeout: 900
+
 # Syslog system
 ubuntu1804cis_syslog: rsyslog
 # ubuntu1804cis_syslog: syslog-ng
@@ -459,7 +461,7 @@ ubuntu1804cis_vartmp:
   enabled: false
 
 # Apply upgrades (set to false if another patching system is in place)
-ubuntu1804cis_apply_upgrades: true
+ubuntu1804cis_apply_upgrades: false
 
 ###### Multi OS Vars ###########
 prelim_check_package_command:

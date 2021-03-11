@@ -347,6 +347,22 @@ build {
     script          = "scripts/clear-network.sh"
   }
 
+  # Copy the CIS ansible tree into the machine in /tmp
+  # This will create /tmp/cis_ubuntu_18.04 (no trailing /)
+  # RTFM b4 asking why: https://www.packer.io/docs/provisioners/file
+  provisioner "file" {
+    source = "cis_ubuntu_18.04"
+    destination = "/tmp"
+  }
+
+  # Install the CIS hardening Ansible
+  provisioner "shell" {
+    execute_command = "echo 'ubuntu' | {{ .Vars }} sudo -S -E bash '{{ .Path }}'"
+    script          = "scripts/cis-setup.sh"
+  }
+
+
+
   # kick to Ansible for configuration on first-boot
   provisioner "ansible-local" {
     playbook_file = "scripts/ansible-bootstrap.yml"

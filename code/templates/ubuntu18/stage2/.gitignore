@@ -1,0 +1,8 @@
+packer_cache/*
+output-gold_image_stage2/*
+output-virtualbox-ovf/*
+vagrant/*.box
+.vagrant/*
+*.log
+*.manifest
+*.checksum

@@ -15,6 +15,7 @@ PACKER_FILE := $(shell pwd)
 GOLD_IMAGE_NAME = "gold_image"
 VBOX_BUILD      = "virtualbox-iso.$(GOLD_IMAGE_NAME)"
 VSPHERE_BUILD   = "vsphere-iso.$(GOLD_IMAGE_NAME)"
+DOCKER_BUILD    = "docker.$(GOLD_IMAGE_NAME)"
 
 .DEFAULT_GOAL := all
 
@@ -32,6 +33,11 @@ vsphere:
 vbox:
 	@echo "*** Building vbox, opts: $(PACKER_BUILD_OPTS) ***"
 	$(PACKER) build $(PACKER_BUILD_OPTS) -only=$(VBOX_BUILD) $(PACKER_FILE)
+
+# Build Docker image
+docker:
+	@echo "*** Building docker, opts: $(PACKER_BUILD_OPTS) ***"
+	$(PACKER) build $(PACKER_BUILD_OPTS) -only=$(DOCKER_BUILD) $(PACKER_FILE)
 
 # Build all, clean first
 build: clean

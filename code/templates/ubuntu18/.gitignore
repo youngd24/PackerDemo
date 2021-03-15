@@ -1,5 +1,6 @@
 packer_cache/*
 output-gold_image/*
+docker-build/*
 vagrant/*.box
 .vagrant/*
 *.log

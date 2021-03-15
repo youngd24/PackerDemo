@@ -1,0 +1,7 @@
+
+- name: CIS Hardening
+  hosts: localhost
+  become: yes
+
+  roles:
+    - cis_ubuntu_18.04

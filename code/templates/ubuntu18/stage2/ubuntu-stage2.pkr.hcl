@@ -15,7 +15,9 @@ variable "vm_version" {
 }
 
 source "virtualbox-ovf" "virtualbox_stage2" {
-  boot_command      = ["<tab><wait>", "<enter"]
+  boot_command      = [ "<tab><wait> ",
+                        "<enter>"
+                      ]
   checksum          = "file:../packer-ubuntu-18.04.5.checksum"
   communicator      = "ssh"
   format            = "ovf"

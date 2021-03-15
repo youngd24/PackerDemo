@@ -31,7 +31,7 @@ vsphere:
 # Build vbox image
 vbox:
 	@echo "*** Building vbox, opts: $(PACKER_BUILD_OPTS) ***"
-	$(PACKER) build $(PACKER_BUILD_OPTS) -only=$(VBOX_BUILD) $(PACKER_FILE)
+	$(PACKER) build $(PACKER_BUILD_OPTS) -only=virtualbox-ovf.virtualbox_stage2 $(PACKER_FILE)
 
 # Build all, clean first
 build: clean

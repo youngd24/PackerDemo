@@ -302,6 +302,29 @@ source "vsphere-iso" "gold_image" {
   ssh_username         = "${var.ssh_username}"
 }
 
+
+######################
+# VMware Docker source
+######################
+source "docker" "gold_image" {
+    image = "ubuntu:18.04"
+    export_path = "docker-build"
+    #discard = true
+    author = "iManage SecOps <secops@imanage.com>"
+    #commit = true
+    changes = [
+    #"USER www-data",
+    #"WORKDIR /var/www",
+    #"ENV HOSTNAME www.example.com",
+    "VOLUME /test1 /test2",
+    #"EXPOSE 80 443",
+    "LABEL version=0.1",
+    "ONBUILD RUN date",
+    #"CMD [\"nginx\", \"-g\", \"daemon off;\"]",
+    #"ENTRYPOINT /var/www/start.sh"
+  ]
+}
+
 ##############################################################################
 # BUILDS
 ##############################################################################
@@ -312,7 +335,8 @@ build {
   ####################
   sources = [
               "source.virtualbox-iso.gold_image",
-              "source.vsphere-iso.gold_image"
+              "source.vsphere-iso.gold_image",
+              "source.docker.gold_image"
             ]
 
   ##############
@@ -362,7 +386,6 @@ build {
   }
 
 
-
   # kick to Ansible for configuration on first-boot
   provisioner "ansible-local" {
     playbook_file = "scripts/ansible-bootstrap.yml"
@@ -375,7 +398,7 @@ build {
   # Install the vbox guest additions
   provisioner "shell" {
     execute_command = "echo 'ubuntu' | {{ .Vars }} sudo -S -E bash '{{ .Path }}'"
-    only            = ["virtualbox-iso.gold_image"]
+    only            = [ "virtualbox-iso.gold_image" ]
     script          = "scripts/virtualbox-guest-additions.sh"
   }
 
@@ -386,7 +409,7 @@ build {
   # Install vmware tools (open-vm-tools)
   provisioner "shell" {
     execute_command = "echo 'ubuntu' | {{ .Vars }} sudo -S -E bash '{{ .Path }}'"
-    only            = ["vsphere-iso.gold_image"]
+    only            = [ "vsphere-iso.gold_image" ]
     script          = "scripts/vmware-tools.sh"
   }
 
@@ -409,21 +432,28 @@ build {
   # Generate a vagrant box
   post-processor "vagrant" {
     keep_input_artifact = true
-    only                = ["virtualbox-iso.gold_image"]
+    only                = [ "virtualbox-iso.gold_image" ]
     output              = "vagrant/packer-ubuntu-${var.ubuntu_version}.box"
   }
 
   # Manifest file, only needed for vbox
   post-processor "manifest" {
     output     = "packer-ubuntu-${var.ubuntu_version}.manifest"
-    only       = ["virtualbox-iso.gold_image"]
+    only       = [ "virtualbox-iso.gold_image" ]
     strip_path = false
   }
 
   # Checksums, only needed for vbox
   post-processor "checksum" {
     checksum_types = [ "sha256" ]
-    only           = ["virtualbox-iso.gold_image"]
+    only           = [ "virtualbox-iso.gold_image" ]
     output         = "packer-ubuntu-${var.ubuntu_version}.checksum"
+  }
+
+  # Docker tag
+  post-processor "docker-tag" {
+    only       = [ "docker.gold_image" ]
+    repository = "youngd24/packer"
+    tag        = [ "0.1,PackerBuilt" ]
   }
 }

@@ -15,9 +15,9 @@
 #
 ###############################################################################
 
-echo "Entering script $0"
+echo "Entering script stage2.sh"
 
-echo "Running CIS playbook rhel7-cis.yml in /opt"
-#cd /opt && ansible-playbook rhel7-cis.yml
+echo "Running Ansible playbook cis.yml in /opt/cis"
+cd /opt/cis && ansible-playbook cis.yml
 
-echo "Leaving script $0"
+echo "Leaving script stage2.sh"

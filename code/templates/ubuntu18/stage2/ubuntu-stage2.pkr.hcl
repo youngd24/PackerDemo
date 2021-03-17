@@ -36,6 +36,7 @@ source "virtualbox-ovf" "virtualbox_stage2" {
 build {
   sources = ["source.virtualbox-ovf.virtualbox_stage2"]
 
+  # Run the stage2 hardening script (Ansible playbook in /opt/cis)
   provisioner "shell" {
     execute_command = "echo 'sysadmin' | {{ .Vars }} sudo -S -E bash '{{ .Path }}'"
     script          = "../scripts/stage2.sh"
@@ -44,19 +45,19 @@ build {
   # Generate a vagrant box
   post-processor "vagrant" {
     keep_input_artifact = true
-    output              = "vagrant/stage2.box"
+    output              = "vagrant/packer-ubuntu-18.04.5-stage2-full-cis.box"
   }
 
   # Manifest file, only needed for vbox
   post-processor "manifest" {
-    output     = "stage2.manifest"
+    output     = "packer-ubuntu-18.04.5-stage2-full-cis.manifest"
     strip_path = false
   }
 
   # Checksums, only needed for vbox
   post-processor "checksum" {
     checksum_types = [ "sha256" ]
-    output         = "stage2.checksum"
+    output         = "packer-ubuntu-18.04.5-stage2-full-cis.checksum"
   }
 
 }
